@@ -1,0 +1,300 @@
+{% extends "layout.html" %}
+{% block content %}
+<!------------------------------------------->
+<div class="content spacer">
+	<!-- TITLE -->
+	{% if word %}
+		<a href="{{ url_for('wordPage', wordId=wordId) }}">
+		<h1 class="word-title no-select">
+		{{ word.word }}</h1></a>
+
+		<!-- WORD STATUS -->		
+		<div class="word-status">
+		{% if word.wordInfo["wordV"] == 0 %}
+			<p class="word-status-unverified please-verify no-select">
+				<span>Please verify:</span> 
+				<a href="{{ url_for('basicWordVerificationPage', wordId=wordId) }}">
+				Basic</a> or 
+				<a href="{{ url_for('fullWordVerificationPage', wordId=wordId) }}">
+				Full</a></p>
+
+		{% elif word.wordInfo["wordV"] == 1 %}
+			<img src="{{ url_for('static', filename='/img/word/verified-basic.png') }}"
+				class="word-status-verified-icon",
+				title="Basic info verified."
+				alt="(v)">
+			<p class="word-status-unverified please-verify no-select">
+				<span>Please verify:</span> 
+				<a href="{{ url_for('fullWordVerificationPage', wordId=wordId) }}">
+				Full</a></p>
+
+		{% elif word.wordInfo["wordV"] == 2 %}
+			<img src="{{ url_for('static', filename='/img/word/verified-full.png') }}"
+				class="word-status-verified-icon",
+				title="Full info verified."
+				alt="(V)">
+			<p class="word-status-verified no-select">
+				<a href="{{ url_for('wordEditPage', wordId=wordId) }}">
+				Edit...</a></p>
+
+		{% else %}
+			<p>Error somehow.</p>
+
+		{% endif %}
+		</div><br>
+
+	{% else %}
+		<h1 class="title no-select">
+		Word Not Found!</h1>
+	{% endif %}
+<!------------------------------------------->
+<!-- WORD INFO -->
+<div class="word-info-60">
+<!-- TYPE -->
+{% if word.wordInfo["type"] %}
+	{% if word.wordInfo["typeV"] == 0 %}
+	<p class="word-type tint-red no-select">
+		{{ word.wordInfo["type"]|capitalize }}</p>
+	{% elif word.wordInfo["typeV"] > 0 %}
+	<p class="word-type no-select">
+		{{ word.wordInfo["type"]|capitalize }}</p>
+	{% endif %}
+	{% if word.wordInfo["wordV"] == 2 %}
+	<p class="word-type no-select"
+		style="cursor: not-allowed;">
+		Add new...</p>
+	{% endif %}<br>
+{% else %}
+	<p class="word-type tint-red no-select">
+	None</p><br>
+{% endif %}
+
+<div class="word-phonics">
+	<!-- IPA -->
+	<div class="inline-block l-col">
+	{% if word.wordInfo["ipa"] %}
+		<a onclick="playIpa();">
+			<p class="word-ipa no-select">
+				{{ word.wordInfo["ipa"] }} <!-- 🔊 -->
+			</p></a>
+	{% else %}
+		<p class="word-ipa no-select">
+			No IPA Available.
+			</p>
+	{% endif %}
+		</div>
+
+	<!-- SYLLABLES -->
+	<div class="inline-block r-col no-select">
+	{% if word.wordInfo["syllablesV"] == 0 %}
+		<p><span class="font-red">Syllables:</span> 
+		{{ word.wordInfo["syllables"] }}</p>
+	{% elif word.wordInfo["syllablesV"] > 0 %}
+		<p><span>Syllables:</span> 
+		{{ word.wordInfo["syllables"] }}</p>
+	{% endif %}
+	</div>
+</div><br> <!-- END WORD PHONICS -->
+
+<!-- DEFINTION -->
+{% if word.wordInfo["definitionV"] == 0 %}
+<p class="word-lines tint-red">
+	<span class="no-select">Definition:</span>
+	{{ word.wordInfo["definition"] }}
+	</p>
+{% elif word.wordInfo["definitionV"] > 0 %}
+<p class="word-lines">
+	<span class="no-select">Definition:</span>
+	{{ word.wordInfo["definition"] }}
+	</p>
+{% endif %}
+
+<!-- SENTENCE -->
+{% if word.wordInfo["sentenceV"] == 0 %}
+<p class="word-lines tint-red">
+	<span class="no-select">Sentence:</span>
+	{{ word.wordInfo["sentence"] }}
+	</p>
+{% elif word.wordInfo["sentenceV"] > 0 %}
+<p class="word-lines">
+	<span class="no-select">Sentence:</span>
+	{{ word.wordInfo["sentence"] }}
+	</p>
+{% endif %}
+
+</div> <!-- END WORD-INFO-60 -->
+
+<!------------------------------------------->
+<!-- MAIN IMAGE -->
+<div class="word-image-main-container">
+{% if word.wordInfo['imagesV'] == 0 %}
+	<img class="word-image-main unverified-image" 
+		src="{{ word.wordInfo['images'][0] }}">
+{% else %}
+	{% if word.wordInfo['imageSelected'] %}
+		<img class="word-image-main" 
+			src="{{ word.wordInfo['imageSelected'] }}">
+	{% else %}
+		<img src="{{ url_for('static', filename='/img/word/missing-word.png') }}" 
+			class="word-image-main">
+	{% endif %}
+{% endif %}
+</div>
+
+<!------------------------------------------->
+<!-- ADDITIONAL IMAGES -->
+<div class="word-image-additional-container">
+{% if word.wordInfo["wordV"] == 0 %}
+	{% for image in word.wordInfo["images"] %}
+		{% if image != word.wordInfo["images"][0] %}
+		<img class="unverified-image word-image-additional"
+			src="{{ image }}">
+		{% endif %}
+	{% endfor %}
+{% else %}
+	{% if word.wordInfo["images"][0] != "h" %}
+		{% for image in word.wordInfo["images"] %}
+			{% if image != word.wordInfo["imageSelected"] %}
+			<img class="word-image-additional"
+				src="{{ image }}">
+			{% endif %}
+		{% endfor %}
+	{% endif %}
+{% endif %}
+</div> <!-- END ADDITIONAL IMAGES -->
+<!------------------------------------------->
+<!-- WORD INFO BOTTOM -->
+<div class="word-info-bottom">
+<!-- RELATED WORDS -->
+<!-- POPUP INFO -->
+<div id="related-info-modal" 
+	class="word-info-modal hidden">
+	<div class="word-info-modal-border">
+		<p class="word-modal-title no-select">
+			Please use this format!</p>
+		<p id="related-info-close-modal" 
+			class="close-modal">&times;</p>
+		</div>
+	<div id="related-info" class="no-select">
+		<p class="align-left font-weight-300 bottom10">Related words should show the <u>root word used differently</u>, 
+		not words with a similar meaning.</p>
+		<p class="align-left font-weight-300">
+			<b class="font-green">Correct</b>: 
+				<u>like</u>, a<u>like</u>, <u>like</u>n, <u>like</u>d...<br>
+			<b class="font-red">Incorrect</b>: 
+				<u>like</u>, <s>enjoy</s>, <s>favor</s>, <s>fond of</s>...
+			</p>
+		</div>
+	</div>
+{% if word.wordInfo['relatedV'] == 0 %}
+<div class="word-info-bottom-column tint-red">
+	<p class="word-info-heading inline-block no-select">Related </p>
+	<span class="inline-block">
+		<a onclick="showInfo(this)" class="no-select"
+			style="cursor: pointer;">
+			<img src="{{ url_for('static', filename='/img/word/helpIcon.png') }}"
+				style="width: 18px; height: 18px;">
+			</a></span>
+	{% for related in word.wordInfo["related"] %}
+		<p>{{ related }}</p>
+	{% endfor %}
+	</div>
+{% elif word.wordInfo['relatedV'] > 0 %}
+<div class="word-info-bottom-column">
+	<p class="word-info-heading inline-block no-select">Related </p>
+	<span class="inline-block">
+		<a onclick="showInfo(this)" class="no-select"
+			style="cursor: pointer;">
+			<img src="{{ url_for('static', filename='/img/word/helpIcon.png') }}"
+				style="width: 18px; height: 18px;">
+			</a></span>
+	{% for related in word.wordInfo["related"] %}
+		<p>{{ related }}</p>
+	{% endfor %}
+	</div>
+{% endif %}
+
+<!-- SYNONYMS -->
+{% if word.wordInfo['synonymsV'] == 0 %}
+<div class="word-info-bottom-column tint-red">
+	<p class="word-info-heading no-select">Synonyms</p>
+	{% for synonym in word.wordInfo["synonyms"] %}
+		<p>{{ synonym }}</p>
+	{% endfor %}
+	</div>
+{% elif word.wordInfo['synonymsV'] > 0 %}
+<div class="word-info-bottom-column">
+	<p class="word-info-heading no-select">Synonyms</p>
+	{% for synonym in word.wordInfo["synonyms"] %}
+		<p>{{ synonym }}</p>
+	{% endfor %}
+	</div>
+{% endif %}
+
+<!-- ANTONYMS -->
+{% if word.wordInfo['antonymsV'] == 0 %}
+<div class="word-info-bottom-column tint-red">
+	<p class="word-info-heading no-select">Antonyms</p>
+	{% for antonym in word.wordInfo["antonyms"] %}
+		<p>{{ antonym }}</p>
+	{% endfor %}
+	</div>
+{% elif word.wordInfo['antonymsV'] > 0 %}
+<div class="word-info-bottom-column">
+	<p class="word-info-heading no-select">Antonyms</p>
+	{% for antonym in word.wordInfo["antonyms"] %}
+		<p>{{ antonym }}</p>
+	{% endfor %}
+	</div>
+{% endif %}
+
+<!-- RHYMES -->
+{% if word.wordInfo['rhymesV'] == 0 %}
+<div class="word-info-bottom-column tint-red">
+	<p class="word-info-heading no-select">Rhymes</p>
+	{% for rhyme in word.wordInfo["rhymes"] %}
+		<p>{{ rhyme }}</p>
+	{% endfor %}
+	</div>
+{% elif word.wordInfo['rhymesV'] > 0 %}
+<div class="word-info-bottom-column">
+	<p class="word-info-heading no-select">Rhymes</p>
+	{% for rhyme in word.wordInfo["rhymes"] %}
+		<p>{{ rhyme }}</p>
+	{% endfor %}
+	</div>
+{% endif %}
+
+
+
+</div> <!-- END WORD INFO BOTTOM -->
+<!------------------------------------------->
+</div> <!-- END CONTENT -->
+
+<!------------------------------------------->
+<!-- JAVASCRIPT -->
+<script type="text/javascript">
+	
+	// PLAY IPA
+	function playIpa() {
+	    var ipaAudio = new Audio("{{ word.wordInfo['audio'] }}");
+	    ipaAudio.play();
+	}
+
+	// MODAL FOR RELATED WORDS
+	function showInfo(help) {
+		info = document.getElementById("related-info-modal");
+		close = document.getElementById("related-info-close-modal");
+		info.className = "word-info-modal block";
+		close.onclick = function() {
+			info.className = "word-info-modal hidden";
+		}
+		window.onclick = function(event) {
+			if (event.target == info) {
+				info.className = "word-info-modal hidden";
+			}
+		}
+	}
+</script>
+<!------------------------------------------->
+{% endblock content %}

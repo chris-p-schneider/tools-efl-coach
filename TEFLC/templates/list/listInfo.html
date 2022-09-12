@@ -1,0 +1,423 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="content spacer no-select">
+<!-- TITLE -->
+	<h1 class="title">
+		List Info</h1>
+	<p class="status-para font20">
+		I've designed the text input process to make it easy to copy/paste from websites or word documents with little tedious manual clean-up.
+		When you input text into a new list, a few things happen:
+		</p>
+	<ol>
+<!-- STEPS -->
+	<li class="status-para font20">
+		First, your list gets checked as to whether it uses commas, tabs, or line breaks to separate words. 
+		Please use one of these:
+		<ul>
+			<li class="top10 bottom5">[<code>,</code>] <span>Comma</span>: vocabulary, words, like this</li>
+			<li class="bottom5">[<code>	</code>] <span>Tab</span>:  words	separated	by tabs (not spaces)
+			<li class="bottom10">[<code>\n</code>] <span>New line</span>: 
+					<ul><li>Words</li>
+						<li>separated</li>
+						<li>this way</li>
+					</ul>
+		</ul>
+		</li>
+	<li class="status-para font20">
+		Next, lone single characters [like '<code>a</code>'] are removed from your text. 
+		Some still might get through, so it's necessary to double-check afterwards by clicking "Edit".
+		</li>
+	<li class="status-para font20">
+		Then, non-English characters, numbers, and symbols are removed.
+		There are a few exceptions, <span style="border-bottom: 1px solid hsl(0,0%, 67%);">including a normal space</span>:
+		<br><ul>
+			<li class="top10 bottom5">[<code>'</code>] <span>Apostrophe</span>: doctor's</li>					
+			<li class="bottom5">[<code>!</code>] <span>Exclamation</span>: Wow!</li>					
+			<li class="bottom5">[<code>?</code>] <span>Question</span>: Really?</li>					
+			<li class="bottom5">[<code>.</code>] <span>Period</span>: Mt. Everest</li>
+			<li class="bottom10">[<code>-</code>] <span>Hyphen</span>: twenty-one</li>
+			</ul>
+		I decided on these characters because I think they are most likely to be used within vocabulary.
+		Please note that all words are CaSe Sensitive. Capitalization matters.
+		</li>
+	<li class="status-para font20">
+		Next, the text is filtered again for single characters that might have been created when the non-letters were removed.
+		</li>
+	<li class="status-para font20">
+		Additionally, lowercase <code>i'</code> is reformatted to capital <code>I'</code>.
+		</li>
+	<li class="status-para font20">
+		Lastly, your list is saved with the above changes.
+		I use line breaks as my delimiter, so your final list will be reformatted as such. 
+		When you edit your list, it will not be reformatted again.
+		</li>
+	</ol><hr>
+<!-- EXAMPLES -->
+	<h1 class="title bottom20">
+		Examples</h1>
+	<div>
+	<!-- INPUT -->
+	<div style="width: 49%; display: inline-block;">
+		<!-- INPUT 1 -->
+		<p class="status-para font20">
+		<code>INPUT</code> from <a href="https://www.textfixer.com/tutorials/common-english-words.php" target="_blank" class="blue-font">here</a>.<br>
+		<textarea style="width: 90%; height: 15vh;">'tis, 'twas, a, able, about, across, after, ain't, all, almost, also, am, among, an, and, any, are, aren't, as, at, be, because, been, but, by, can, can't, cannot, could, could've, couldn't, dear, did, didn't, do, does, doesn't, don't, either, else, ever, every, for, from, get, got, had, has, hasn't, have, he, he'd, he'll, he's, her, hers, him, his, how, how'd, how'll, how's, however, i, i'd, i'll, i'm, i've, if, in, into, is, isn't, it, it's, its, just, least, let, like, likely, may, me, might, might've, mightn't, most, must, must've, mustn't, my, neither, no, nor, not, of, off, often, on, only, or, other, our, own, rather, said, say, says, shan't, she, she'd, she'll, she's, should, should've, shouldn't, since, so, some, than, that, that'll, that's, the, their, them, then, there, there's, these, they, they'd, they'll, they're, they've, this, tis, to, too, twas, us, wants, was, wasn't, we, we'd, we'll, we're, were, weren't, what, what'd, what's, when, when, when'd, when'll, when's, where, where'd, where'll, where's, which, while, who, who'd, who'll, who's, whom, why, why'd, why'll, why's, will, with, won't, would, would've, wouldn't, yet, you, you'd, you'll, you're, you've, your</textarea></p>
+		<!-- INPUT 2 -->
+		<p class="status-para font20">
+		<code>INPUT</code> from <a href="https://englishgrammarhere.com/vocabulary/100-high-frequency-words-you-should-know/" target="_blank" class="blue-font">here</a>.<br>
+		<textarea style="width: 90%; height: 15vh;">a	boil	local	sky
+able	bomb	locate	slave
+about	cable	minus	sleep
+above	cage	minute	slide
+absolute	cake	mirror	slight
+accent	calculate	miss	slip
+accept	call	mission	slow
+access	calm	mistake	small
+account	camera	mister	spend
+accuse	chain	mix	spin
+big	chew	north	tongue
+bike	chicken	northern	we
+bill	current	nose	weak
+billion	customer	not	weapon
+bin	cut	note	wheel
+bind	dad	right	when
+bird	damage	rights	year
+birth	dance	ring	yell
+biscuit	door	rip	yellow
+bit	double	sauce	yes
+blow	doubt	sausage	yesterday
+blue	dump	save	yet
+board	during	skill	you
+boat	dust	skin	young
+body	duty	skirt	zero</textarea></p>
+		<!-- INPUT 3 -->
+		<p class="status-para font20">
+		<code>INPUT</code> to make a point.<br>
+		<textarea style="width: 90%; height: 15vh;">Wow! Hopefully this example helps?
+I'm going to make another list form that can process text from articles in paragraph format.
+That said, this list input form isn't really meant for that. 
+If you're a coworker of mine, you can copy/paste the vocab lists from Google Drive easily.
+Eventually, I'll save a bank of ready-to-use JS vocab lists, though I mostly teach JS5 - JS8.
+I don't think this site is best for grammar words, but we'll get into that later.
+Happy teaching!
+- Chris</textarea></p>
+		</div>
+	<!-- OUTPUT -->
+	<div style="width: 49%; display: inline-block;">
+		<!-- OUTPUT 1 -->
+		<p class="status-para font20">
+		<code>OUTPUT</code><br>
+		<textarea style="width: 90%; height: 15vh;">'tis
+'twas
+able
+about
+across
+after
+ain't
+all
+almost
+also
+am
+among
+an
+and
+any
+are
+aren't
+as
+at
+be
+because
+been
+but
+by
+can
+can't
+cannot
+could
+could've
+couldn't
+dear
+did
+didn't
+do
+does
+doesn't
+don't
+either
+else
+ever
+every
+for
+from
+get
+got
+had
+has
+hasn't
+have
+he
+he'd
+he'll
+he's
+her
+hers
+him
+his
+how
+how'd
+how'll
+how's
+however
+I'd
+I'll
+I'm
+I've
+if
+in
+into
+is
+isn't
+it
+it's
+its
+just
+least
+let
+like
+likely
+may
+me
+might
+might've
+mightn't
+most
+must
+must've
+mustn't
+my
+neither
+no
+nor
+not
+of
+off
+often
+on
+only
+or
+other
+our
+own
+rather
+said
+say
+says
+shan't
+she
+she'd
+she'll
+she's
+should
+should've
+shouldn't
+since
+so
+some
+than
+that
+that'll
+that's
+the
+their
+them
+then
+there
+there's
+these
+they
+they'd
+they'll
+they're
+they've
+this
+tis
+to
+too
+twas
+us
+wants
+was
+wasn't
+we
+we'd
+we'll
+we're
+were
+weren't
+what
+what'd
+what's
+when
+when
+when'd
+when'll
+when's
+where
+where'd
+where'll
+where's
+which
+while
+who
+who'd
+who'll
+who's
+whom
+why
+why'd
+why'll
+why's
+will
+with
+won't
+would
+would've
+wouldn't
+yet
+you
+you'd
+you'll
+you're
+you've
+your</textarea></p>
+		<!-- OUTPUT 2 -->
+		<p class="status-para font20">
+		<code>OUTPUT</code><br>
+		<textarea style="width: 90%; height: 15vh;">boil
+local
+sky
+able
+bomb
+locate
+slave
+about
+cable
+minus
+sleep
+above
+cage
+minute
+slide
+absolute
+cake
+mirror
+slight
+accent
+calculate
+miss
+slip
+accept
+call
+mission
+slow
+access
+calm
+mistake
+small
+account
+camera
+mister
+spend
+accuse
+chain
+mix
+spin
+big
+chew
+north
+tongue
+bike
+chicken
+northern
+we
+bill
+current
+nose
+weak
+billion
+customer
+not
+weapon
+bin
+cut
+note
+wheel
+bind
+dad
+right
+when
+bird
+damage
+rights
+year
+birth
+dance
+ring
+yell
+biscuit
+door
+rip
+yellow
+bit
+double
+sauce
+yes
+blow
+doubt
+sausage
+yesterday
+blue
+dump
+save
+yet
+board
+during
+skill
+you
+boat
+dust
+skin
+young
+body
+duty
+skirt
+zero</textarea></p>
+		<!-- OUTPUT 3 -->
+		<p class="status-para font20">
+		<code>OUTPUT</code><br>
+		<textarea style="width: 90%; height: 15vh;">Wow! Hopefully this example helps?
+I'm going to make another list form that can process text from articles in paragraph format.
+That said
+this list input form isn't really meant for that. 
+If you're a coworker of mine
+you can copypaste the vocab lists from Google Drive easily.
+Eventually
+I'll save a bank of ready-to-use JS vocab lists
+though I mostly teach JS - JS.
+I don't think this site is best for grammar words
+but we'll get into that later.
+Happy teaching!
+- Chris</textarea></p>
+		</div>
+	</div>
+<!-- SUGGESTION / BACKLINKS -->
+	<p class="status-para font20 top10">
+		Suggestions for improvement? Feel free to <a href="https://efl.coach/contact/" target="_blank" class="blue-font">contact me</a>.
+		</p>
+	<p class="status-para font20">
+		Or, go back to <a href="{{ url_for('accountPage') + '#Account-Lists' }}" class="blue-font">My Lists</a> or <a href="{{ url_for('newListPage') }}" class="blue-font">Making a New List</a>.
+		</p>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,47 @@
+{
+    "word": "chocolate",
+    "wordV": 2,
+    "ipa": "/ˈtʃɑk(ə)lət/",
+    "audio": "https://lex-audio.useremarkable.com/mp3/chocolate_us_1_rr.mp3",
+    "type": "noun",
+    "typeV": 4,
+    "definition": "a food that is made from cacao beans and that is eaten as candy or used as a flavoring ingredient in other sweet foods",
+    "definitionV": 4,
+    "images": [
+        "https://images.unsplash.com/photo-1582176604856-e824b4736522?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D"
+    ],
+    "imagesV": 4,
+    "imageSelected": "https://images.unsplash.com/photo-1582176604856-e824b4736522?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D",
+    "syllables": 2,
+    "syllablesV": 2,
+    "sentence": "He licked the chocolate off his fingers.",
+    "sentenceV": 2,
+    "related": [
+        "chocolate bar",
+        "chocolate box",
+        "chocolate chip cookie",
+        "chocolate drop",
+        "chocolates",
+        "chocolatier",
+        "chocolaty"
+    ],
+    "relatedV": 2,
+    "synonyms": [
+        "cacao",
+        "cocoa"
+    ],
+    "synonymsV": 2,
+    "antonyms": [
+        "vanilla"
+    ],
+    "antonymsV": 2,
+    "rhymes": [
+        "bonnet",
+        "docket",
+        "gauntlet",
+        "locket",
+        "pocket",
+        "rocket"
+    ],
+    "rhymesV": 2
+}

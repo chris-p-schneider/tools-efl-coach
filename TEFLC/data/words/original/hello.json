@@ -1,0 +1,66 @@
+{
+    "word": "hello",
+    "wordV": 0,
+    "ipa": "/həˈloʊ/",
+    "audio": "https://lex-audio.useremarkable.com/mp3/hello_us_1_rr.mp3",
+    "type": "exclamation",
+    "typeV": 0,
+    "definition": "the act of saying the word hello to someone as a greeting",
+    "definitionV": 0,
+    "images": [
+        "https://live.staticflickr.com/3887/14844393347_7a8231a7dd_b.jpg",
+        "https://images.unsplash.com/photo-1500576992153-0271099def59?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D",
+        "https://purepng.com/public/uploads/large/hello-uxc.png"
+    ],
+    "imagesV": 0,
+    "imageSelected": "",
+    "syllables": 2,
+    "syllablesV": 0,
+    "sentence": "\"Hello, Maria,\" he said, and she blushed again.",
+    "sentenceV": 0,
+    "related": [
+        "held",
+        "heliotrope",
+        "helix",
+        "hell",
+        "hellos",
+        "helm",
+        "helmet",
+        "helot",
+        "help",
+        "helpful"
+    ],
+    "relatedV": 0,
+    "synonyms": [
+        "bonjour",
+        "buenas noches",
+        "buenos dias",
+        "good day",
+        "good morning",
+        "greetings",
+        "hey",
+        "hi",
+        "howdy",
+        "welcome"
+    ],
+    "synonymsV": 0,
+    "antonyms": [
+        "adios",
+        "au revoir",
+        "goodbye"
+    ],
+    "antonymsV": 0,
+    "rhymes": [
+        "blow",
+        "flow",
+        "forego",
+        "go",
+        "know",
+        "show",
+        "snow",
+        "so",
+        "though",
+        "throw"
+    ],
+    "rhymesV": 0
+}

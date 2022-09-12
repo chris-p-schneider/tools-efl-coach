@@ -1,0 +1,43 @@
+{
+    "word": "cherry",
+    "wordV": 2,
+    "ipa": "/ˈtʃɛri/",
+    "audio": "https://lex-audio.useremarkable.com/mp3/cherry_us_1.mp3",
+    "type": "noun",
+    "typeV": 2,
+    "definition": "a small round fruit that is usually red or black",
+    "definitionV": 2,
+    "images": [
+        "https://images.unsplash.com/photo-1528821154947-1aa3d1b74941?ixlib=rb-1.2.1",
+        "https://purepng.com/public/uploads/large/purepng.com-cherriescherrygenus-prunussweet-cherryornamental-cherrycherry-blossomcherries-1701527196786av1hi.png"
+    ],
+    "imagesV": 2,
+    "imageSelected": "https://images.unsplash.com/photo-1528821154947-1aa3d1b74941?ixlib=rb-1.2.1",
+    "syllables": 2,
+    "syllablesV": 1,
+    "sentence": "The cherry tree was covered in blossoms.",
+    "sentenceV": 1,
+    "related": [
+        " ",
+        "cherries",
+        "cherrylike"
+    ],
+    "relatedV": 1,
+    "synonyms": [],
+    "synonymsV": 1,
+    "antonyms": [],
+    "antonymsV": 1,
+    "rhymes": [
+        "berry",
+        "bury",
+        "carry",
+        "fairy",
+        "mary",
+        "scary",
+        "tarry",
+        "vary",
+        "very",
+        "wary"
+    ],
+    "rhymesV": 1
+}

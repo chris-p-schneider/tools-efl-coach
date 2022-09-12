@@ -1,0 +1,130 @@
+{% extends "layout.html" %}
+{% block content %}
+<!-------------------------------------------->
+<style>
+	img#storyPanel {
+		padding: 0px;
+		margin: 0px;
+		text-align: center;
+		background-color: white;
+	}
+	p#narration, p#next, p#icon {
+		font-family: Roboto;
+		font-weight: 500;
+		font-size: 5vh;
+	}
+	p#narration {
+		margin: 0px;
+		padding: 0px 0px 0px 10px;
+		display: inline-block;
+		text-align: center;
+	}
+	p#next {
+		padding: 0px 10px 0px 10px;
+		margin: 0px;
+		display: inline-block;
+		-webkit-transition: color .33s ease-in-out;
+		transition: color .33s ease-in-out;
+	}
+	p#next:hover {
+		color: red;
+	}
+	div#bottom {
+		text-align: left;
+		display: inline-block;
+		bottom: 0px;
+		width: 100%;
+		padding: 0px;
+		background-color: white;
+	}
+	div#about {
+		display: inline-block;
+		background-color: white;
+		position: absolute;
+		right: 0px;
+		width: 10%;
+		height: 6vh;
+		margin: 0px;
+		padding: 0px 0px 0px 10px;
+	}
+	p#icon {
+		display: inline-block;
+		position: absolute;
+		right: 12px;
+		padding: 0px 0px 10px 20px;
+		margin: 0px;
+		color: #888888;
+		-webkit-transition: color .33s ease-in-out;
+		transition: color .33s ease-in-out;
+	}
+	p#icon:hover {
+		color: blue;
+	}
+	p#info {
+		font-size: 5vh;
+		font-weight: 100;
+		position: absolute;
+		background-color: white;
+		right: 10%;
+		margin: 0px;
+		padding: 0px 0px 4px 10px;
+		width: 89%;
+		color: #666666;
+	}
+	a {
+		text-decoration: none;
+		color: #666666;
+	}
+</style>
+<!-------------------------------------------->
+<div id="vsg" class="no-select">
+	<img id="storyPanel">
+<!-------------------------------------------->
+<div id="bottom">
+	<p id="narration">
+	Once upon a time...</p>
+	<p id="next" onclick="imgSize(); changeText()">
+	➞</p>
+<!-------------------------------------------->
+<div id="about" onclick="about()">
+	<p id="icon">?</p>
+</div>
+	<p id="info">
+		<a href="https://picsum.photos/" target="_blank">
+		Images by Lorem Picsum.
+	</a></p>
+</div>
+</div>
+<!-------------------------------------------->
+<script>
+function imgSize() {
+	var r1 = Math.floor((Math.random() * 9) + 1);
+	var r2 = Math.floor((Math.random() * 9) + 1);
+	var w = window.innerWidth - (30+r1);
+	var h = window.innerHeight - (120+r2);
+	var imgSrc = "https://picsum.photos/"+w+"/"+h;
+	//alert(imgSrc);
+	document.getElementById("storyPanel").src=imgSrc;
+}
+function changeText() {
+	var text = ["After that...", "...and then...", "Later on...", "Some time later...", 
+		"Eventually...", "The next day...", 
+		"Suddenly...", "Unexpectedly...", 
+		"Shortly after that...", "Minutes later...", "After some time..."]
+	var textLength = text.length;
+	var r = Math.floor((Math.random() * textLength) + 1);
+	document.getElementById("narration").innerText=text[r-1];
+}
+function about() {
+	var info = document.getElementById("info");
+	if (info.style.display == "none") {
+		info.style.display = "inline-block";
+	} else {
+		info.style.display = "none";
+	}
+}
+document.body.onload = imgSize();
+document.body.onload = about();
+</script>
+<!-------------------------------------------->
+{% endblock content %}

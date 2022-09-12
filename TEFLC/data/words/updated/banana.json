@@ -1,0 +1,62 @@
+{
+    "word": "banana",
+    "wordV": 1,
+    "ipa": "/bəˈnænə/",
+    "audio": "https://lex-audio.useremarkable.com/mp3/banana_us_1.mp3",
+    "type": "noun",
+    "typeV": 1,
+    "definition": "a long curved fruit with a thick peel that is yellow when it is ripe",
+    "definitionV": 1,
+    "images": [
+        "https://images.unsplash.com/photo-1481349518771-20055b2a7b24?ixlib=rb-1.2.1",
+        "https://live.staticflickr.com/5101/5681400202_831d9e59df_b.jpg",
+        "https://purepng.com/public/uploads/large/purepng.com-bananasbananabananasyellow-bananabotanically-a-berryedible-fruitherbaceousgenus-musa-1701527188418ax6dm.png"
+    ],
+    "imagesV": 1,
+    "imageSelected": "https://images.unsplash.com/photo-1481349518771-20055b2a7b24?ixlib=rb-1.2.1",
+    "syllables": 3,
+    "syllablesV": 0,
+    "sentence": "He always plays second banana in the basketball matches.",
+    "sentenceV": 0,
+    "related": [
+        "banana boat",
+        "banana oil",
+        "banana peel",
+        "banana republic",
+        "banana split",
+        "banana splits",
+        "banana tree",
+        "bananaquit",
+        "bananas",
+        "banane"
+    ],
+    "relatedV": 0,
+    "synonyms": [
+        "actor",
+        "buffoon",
+        "card",
+        "clown",
+        "comedian",
+        "comic",
+        "fool",
+        "gagster",
+        "humorist",
+        "jester"
+    ],
+    "synonymsV": 0,
+    "antonyms": [],
+    "antonymsV": 0,
+    "rhymes": [
+        "anna",
+        "arcana",
+        "cabana",
+        "diana",
+        "manna",
+        "nana",
+        "piano",
+        "santa",
+        "savanna",
+        "savannah"
+    ],
+    "rhymesV": 0
+}

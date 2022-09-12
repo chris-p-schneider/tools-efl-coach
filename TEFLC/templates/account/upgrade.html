@@ -1,0 +1,127 @@
+{% extends "layout.html" %}
+{% block content %}
+<!------------------------------------------->
+<!-- TITLE -->
+<div class="content spacer">
+	<h1 class="title no-select">
+		Upgrade Account</h1>
+<hr>
+
+<!------------------------------------------->
+<!-- STYLE -->
+<style>
+	.data {
+		font-weight: 400;
+		color: hsl(240, 50%, 50%);
+	}
+	</style>
+
+<!------------------------------------------->
+<h2>Current User</h2>
+	<span class="data">Current User:</span>
+		{{ current_user }} <br>
+	<span class="data">ID:</span>
+		{{ current_user.id }} <br>
+	<span class="data">Username:</span>
+		{{ current_user.username }} <br>
+	<span class="data">Email:</span>
+		{{ current_user.email }} <br>
+	<span class="data">imageFile:</span>
+		{{ current_user.imageFile }} <br>
+	<span class="data">Password:</span>
+		{{ current_user.password }} <br>
+
+<br><hr>
+<!------------------------------------------->
+<h2>User Account</h2>
+	<span class="data">Account:</span>
+		{{ current_user.account }} <br>
+	<span class="data">Joined:</span>
+		{{ current_user.account["joined"] }} <br>
+	<span class="data">Verified:</span>
+		{{ current_user.account["verified"] }} <br>
+	<span class="data">Premium:</span>
+		{{ current_user.account["premium"] }} <br>
+
+<br><hr>
+<span class="data">Member for:</span>
+	{{ memberFor }} <br>
+	<br>
+Member
+{% if memberFor.days == 0 %}
+	since today!
+{% else %}
+	for {{ memberFor.days }} days!
+{% endif %}
+
+<br>
+<br><hr>
+<!------------------------------------------->
+<h2>Preferences</h2>
+{{ current_user.preferences }} <br>
+
+<br><hr>
+<!------------------------------------------->
+<h2>User Lists</h2>
+
+<span class="data">Word Lists:</span>
+	{{ current_user.wordlists }}<br>
+
+<br>
+<span class="data">Last List:</span>
+	{{ current_user.wordlists|last }}<br>
+<span class="data">Length:</span>
+	{{ current_user.wordlists[-1].wordIds|length }}<br>
+
+<span class="data">Test:</span>
+	{{ current_user.wordlists[-1].wordIds[0] }}<br>
+
+{% if current_user.wordlists %}
+<br><hr>
+	<span class="data">WordList[0]:</span>
+		{{ current_user.wordlists[0] }} <br>
+	<span class="data">ID:</span>
+		{{ current_user.wordlists[0].id }} <br>
+	<span class="data">Title:</span>
+		{{ current_user.wordlists[0].title }} <br>
+	<span class="data">Text:</span>
+		{{ current_user.wordlists[0].text }} <br>
+	<span class="data">Word IDs:</span>
+		{{ current_user.wordlists[0].wordIds }} <br>
+	<span class="data">User ID:</span>
+		{{ current_user.wordlists[0].userId }} <br>
+<br><hr>
+
+<span class="data">WordIds:</span>
+	{{ current_user.wordlists[0].wordIds }} <br>
+<span class="data">WordIds[0]:</span>
+	{{ current_user.wordlists[0].wordIds[0] }} <br>
+<span class="data">WordIds[0].word:</span>
+	{{ current_user.wordlists[0].wordIds[0].word }} <br>
+<span class="data">WordIds[0].wordInfo["word"]:</span>
+	{{ current_user.wordlists[0].wordIds[0].wordInfo["word"] }} <br>
+<span class="data">WordIds[0].wordInfo["wordV"]:</span>
+	{{ current_user.wordlists[0].wordIds[0].wordInfo["wordV"] }} <br>
+<span class="data">WordIds[0].wordInfo["type"]:</span>
+	{{ current_user.wordlists[0].wordIds[0].wordInfo["type"] }} <br>
+
+<br><hr>
+
+{% for word in current_user.wordlists[0].wordIds %}
+	{{ word.id }}: 
+	{{ word.wordInfo["word"] }}, 
+{% endfor %}
+<br>
+
+{% endif %}
+
+<br><hr>
+<!------------------------------------------->
+<h2>Connected List</h2>
+<span class="data">Connected:</span>
+	{{ current_user.connected }}<br>
+
+<!------------------------------------------->
+</div> <!-- END CONTENT -->
+<!------------------------------------------->
+{% endblock content %}

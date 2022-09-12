@@ -1,0 +1,51 @@
+{
+    "word": "mango",
+    "wordV": 0,
+    "ipa": "/ˈmæŋɡoʊ/",
+    "audio": "https://lex-audio.useremarkable.com/mp3/mango_us_1.mp3",
+    "type": "noun",
+    "typeV": 0,
+    "definition": "a juicy tropical fruit that has firm yellow and red skin and a hard seed at its center",
+    "definitionV": 0,
+    "images": [
+        "https://live.staticflickr.com/56/113411551_ec6aacf9a3_b.jpg",
+        "https://images.unsplash.com/photo-1591073113125-e46713c829ed?ixlib=rb-1.2.1",
+        "https://purepng.com/public/uploads/large/purepng.com-mangomangojuicy-stone-fruitindian-mangocommon-mango-1701527331974j7ih2.png"
+    ],
+    "imagesV": 0,
+    "imageSelected": "",
+    "syllables": 2,
+    "syllablesV": 0,
+    "sentence": "The fruit tasted rather like mango.",
+    "sentenceV": 0,
+    "related": [
+        "manga",
+        "manganese",
+        "mange",
+        "manger",
+        "mangle",
+        "mangoes",
+        "mangos",
+        "mangosteen",
+        "mangrove",
+        "mangy"
+    ],
+    "relatedV": 0,
+    "synonyms": [],
+    "synonymsV": 0,
+    "antonyms": [],
+    "antonymsV": 0,
+    "rhymes": [
+        "aggro",
+        "bel canto",
+        "blanco",
+        "canto",
+        "cilantro",
+        "dango",
+        "flambeau",
+        "panto",
+        "rambo",
+        "tango"
+    ],
+    "rhymesV": 0
+}

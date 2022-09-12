@@ -1,0 +1,68 @@
+{
+    "word": "apple",
+    "wordV": 0,
+    "ipa": "/ˈæpəl/",
+    "audio": "https://lex-audio.useremarkable.com/mp3/apple_us_1.mp3",
+    "type": "noun",
+    "typeV": 0,
+    "definition": "a round fruit with red, yellow, or green skin and firm white flesh",
+    "definitionV": 0,
+    "images": [
+        "https://live.staticflickr.com/1708/24591388896_bb7bec70c1_b.jpg",
+        "https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?ixlib=rb-1.2.1",
+        "https://purepng.com/public/uploads/large/big-red-apple-xad.png"
+    ],
+    "imagesV": 0,
+    "imageSelected": "",
+    "syllables": 2,
+    "syllablesV": 0,
+    "sentence": "The rotten apple injures its neighbours.",
+    "sentenceV": 0,
+    "related": [
+        "applaud",
+        "applause",
+        "applet",
+        "appliance",
+        "applicable",
+        "applicant",
+        "application",
+        "applied",
+        "applique",
+        "apply"
+    ],
+    "relatedV": 0,
+    "synonyms": [
+        "aquamarine",
+        "beryl",
+        "blue-green",
+        "chartreuse",
+        "fir",
+        "forest",
+        "grass",
+        "jade",
+        "kelly",
+        "olive"
+    ],
+    "synonymsV": 0,
+    "antonyms": [
+        "experienced",
+        "expert",
+        "old",
+        "skilled",
+        "withered"
+    ],
+    "antonymsV": 0,
+    "rhymes": [
+        "appel",
+        "appell",
+        "chapel",
+        "chappel",
+        "chappell",
+        "chapple",
+        "grapple",
+        "kappel",
+        "snapple",
+        "stapel"
+    ],
+    "rhymesV": 0
+}

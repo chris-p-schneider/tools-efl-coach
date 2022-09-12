@@ -1,0 +1,391 @@
+{% extends "layout.html" %}
+{% block content %}
+<!------------------------------------------->
+<!-- UNSCRAMBLE -->
+<!-- CSS -->
+<style type="text/css">
+	@media only screen and (max-width: 450px), (orientation: portrait) {
+		#scrambled-word-container {
+			background-color: white;
+			padding: 2.5vw 0px 0px 0px;
+		}
+		#scrambled-word-container, #scrambled-input-container {
+			height: 22vw;
+			position: relative;
+		}		
+		#unscramble-input {
+			height: 20vw;
+		}
+		#scramble-timer {
+			font-size: 15vw;
+		}
+		#scramble-score {
+			font-size: 18vw;
+		}		
+		#scramble-timer-container, #scramble-score-container {
+			min-height: calc(18vw + 5vh + 5vw);
+		}		
+		/* Resize text to word.length */ 
+		.scrambled-word-short {
+			font-size: 17vw;
+			font-weight: 900;
+		}
+		.scrambled-word-medium {
+			font-size: 12vw;
+			font-weight: 800;
+		}
+		.scrambled-word-long {
+			font-size: 7vw;
+			font-weight: 700;
+		}
+		.scrambled-word-xl {
+			font-size: 5vw;
+			font-weight: 700;
+		}
+		.scrambled-word-xxl {
+			font-size: 3vw;
+			font-weight: 700;
+		}
+	}
+	@media only screen and (min-width: 451px) and (orientation: landscape) {
+		#scrambled-word-container {
+			background-color: white;
+			padding: 2.5vh 0px 0px 0px;
+		}
+		#scrambled-word-container, #scrambled-input-container {
+			height: 22vh;
+			position: relative;
+		}
+		#unscramble-input {
+			height: 20vh;
+		}
+		#scramble-timer {
+			font-size: 15vh;
+		}
+		#scramble-score {
+			font-size: 18vh;
+		}
+		#scramble-timer-container, #scramble-score-container {
+			min-height: calc(18vh + 5vh + 5vw);
+		}
+		/* Resize text to word.length */ 
+		.scrambled-word-short {
+			font-size: 20vh;
+			font-weight: 900;
+		}
+		.scrambled-word-medium {
+			font-size: 15vh;
+			font-weight: 800;
+		}
+		.scrambled-word-long {
+			font-size: 10vh;
+			font-weight: 700;
+		}
+		.scrambled-word-xl {
+			font-size: 8vh;
+			font-weight: 700;
+		}
+		.scrambled-word-xxl {
+			font-size: 5vh;
+			font-weight: 700;
+		}
+	}
+	#unscramble {
+		width: 100%;
+		min-height: 80vh;
+	}
+	#scrambled-input-container {
+		background-color: white;
+		padding: 2.5vh 0px 2.5vh 0px;
+	}
+	#scrambled-word {
+		background-color: white;
+		position: absolute;
+		bottom: 0px;
+		width: 96%;
+		left: 50%;
+		margin-left: -48%;
+	}
+	#unscramble-input {
+		font-weight: 300 !important;
+		text-align: center;
+		background-color: white;
+		border-radius: 25px;
+	}
+	.scramble-correct {
+		background-color: hsl(120, 67%, 77%) !important;
+		animation: correct-pulse .3s linear infinite alternate;
+	}
+	.scramble-incorrect {
+		background-color: hsl(0, 67%, 77%) !important;
+		animation: incorrect-wiggle .3s linear infinite alternate;
+	}
+	#scramble-info {
+		display: block;
+		margin: 0px 0px 2vh 0px;
+	}
+	#scramble-timer-container, #scramble-score-container {
+		display: inline-block !important;
+		min-width: 20%;
+		padding: 2.5vh;
+
+		border: 1px solid hsl(0, 0%, 75%);
+		box-shadow: 0px 1.5px 3px hsla(0, 0%, 67%, .7);
+		border-radius: 15px;
+		
+		background-color: white !important;
+	}
+	#scramble-timer-container {
+		margin-right: 5%;
+	}
+	#scramble-score-container {
+	}
+	#scramble-timer, #scramble-score {
+		margin: 0px 0px -10px 0px;
+	}
+	#scramble-score {
+		font-weight: 100;
+		line-height: .8;
+		padding: 5px 0px 0vh 0px;
+	}
+</style>
+<!------------------------------------------->
+<div id="unscramble" class="no-select">
+<!------------------------------------------->
+<div id="scrambled-word-container">
+	<p id="scrambled-word"></p>
+		</div>
+<div id="scrambled-input-container">
+	<input type="text"
+		id="unscramble-input">
+		</input>
+		</div>
+	<br>
+<div id="scramble-info">
+	<div id="scramble-timer-container">
+	<h1>Time</h1><hr>
+		<p id="scramble-timer" class="timer">
+			3:00</p>
+			</div>
+	<div id="scramble-score-container">
+	<h1>Score</h1><hr>
+		<p id="scramble-score">
+			0</p>
+			</div>
+	</div> <!-- END SCRAMBLE INFO -->
+</div> <!-- END SCRAMBLE -->
+<!------------------------------------------->
+<!-- JAVASCRIPT -->
+<!------------------------------------------->
+<script type="text/javascript">
+
+// GLOBALS
+let scrambledWord = document.getElementById("scrambled-word"),
+	input = document.getElementById("unscramble-input"),
+	wordCounter = -1,
+	currentWord = "Ready?",
+	currentScramble = "",
+	timer = document.getElementById("scramble-timer"),
+	gameActive = 0, // 0 initial, 1 false, 2 active
+	count = 0,
+	scrambleScore = document.getElementById("scramble-score"),
+	score = 0,
+	wordlist = [
+	{% for word in unscrambleList %}
+		{% if loop.index != unscrambleList|length %}
+			"{{ word }}",
+		{% else %}
+			"{{ word }}"
+		{% endif %}
+	{% endfor %}
+	];
+
+// WORD LENGTH RESIZING
+function textClass(textId) {
+	let textClass = "";
+	if (textId.innerText.length < 9) {
+		textClass = "scrambled-word-short";
+	} else if (textId.innerText.length < 12) {
+		textClass = "scrambled-word-medium";
+	} else if (textId.innerText.length < 18) {
+		textClass = "scrambled-word-long";
+	} else if (textId.innerText.length < 22) {
+		textClass = "scrambled-word-xl";
+	} else {
+		textClass = "scrambled-word-xxl";
+	}
+	input.size = currentWord.length - 2;
+	return textClass;
+}
+
+/////////////////////////////////////////
+// SCRAMBLING
+/////////////////////////////////////////
+
+// STRING TO ARRAY
+function stringToArray (string) {
+	let array = [];
+	for (i = 0; i < string.length; i++) {
+		array.push(string.slice(i, i+1));
+	}
+	return array;
+}
+
+// Fisher–Yates Shuffle
+// From Mike Bostock
+function shuffle(array) {
+	var m = array.length, t, i;
+	// While there remain elements to shuffle…
+	while (m) {
+		// Pick a remaining element…
+		i = Math.floor(Math.random() * m--);
+		// And swap it with the current element.
+		t = array[m];
+		array[m] = array[i];
+		array[i] = t;
+	}
+	return array;
+}
+
+// ARRAY TO STRING
+function arrayToString(array) {
+	let string = array.toString(),
+	string2 = string.replaceAll(",", "");
+	return string2;
+}
+
+// SCRAMBLE WORD
+function wordScrambler(word) {
+	let array = stringToArray(word),
+		shuffledArray = shuffle(array),
+		shuffledString = arrayToString(shuffledArray);
+	return shuffledString;
+}
+
+// INITIALIZE APP
+scrambledWord.innerText = wordScrambler(currentWord);
+scrambledWord.className = textClass(scrambledWord);
+input.className = textClass(input);
+input.focus();
+var counter; // timer reference
+
+// RESET GAME
+function resetGame() {
+	currentWord = "Ready?";
+	scrambledWord.innerText = wordScrambler(currentWord);
+	scrambledWord.className = textClass(scrambledWord);
+	timer.innerText = "3:00";
+	input.innerText = "";
+	input.className = textClass(input);
+	modifyScore();
+	count = 0;
+}
+
+// TIMER
+function countDown() {
+	if (gameActive === 2) {
+		let remaining = 179 - count,
+			minutes = Math.floor(remaining / 60),
+			seconds = (remaining % 60).toString();
+
+		let paddedSeconds = seconds.padStart(2,0);
+		timer.innerText = minutes + ":" + paddedSeconds;
+		count++;
+
+		if (count === 180) {
+			gameActive = 1;
+			clearInterval(counter);
+			scrambledWord.innerText = "Time's up!";
+			input.innerText = "";
+			input.className = textClass(input) + " scramble-incorrect";
+			setTimeout(function() {
+				resetGame(); 
+			}, 2000);
+		}
+	}
+}
+
+// INITIALIZE TIMER INTERVAL
+
+////////////////////////////////////
+// GAMEPLAY
+////////////////////////////////////
+
+// SHOW ANSWER
+function showAnswer() {
+	scrambledWord.className = textClass(scrambledWord);
+	scrambledWord.innerText = currentWord;
+	input.className = textClass(input) + " scramble-correct";
+}
+
+// MODIFY SCORE
+function modifyScore() {
+	if (gameActive === 2) {
+		score++;
+	} else if (gameActive === 1) {
+		score = 0;
+	}
+	scrambleScore.innerText = score;
+}
+
+// NEXT WORD
+function nextScramble() {
+	input.value = "";
+	input.className = textClass(input);
+	if (wordCounter == (wordlist.length) - 1) {
+		wordCounter = 0;
+		reshuffledList = shuffle(wordlist);
+		wordlist = reshuffledList;
+	} else {
+		wordCounter++;
+	}
+	currentWord = wordlist[wordCounter];
+	scrambledWord.className = textClass(scrambledWord);
+	scrambledWord.innerText = wordScrambler(currentWord);
+}
+
+// CHECK IF CORRECT
+function scrambleCheck() {
+	if (input.value == currentWord ) {
+		if (gameActive === 0) {
+			gameActive = 2;
+			counter = setInterval(function() {
+				countDown();
+			}, 1000);
+		} else if (gameActive === 1) {
+			clearInterval(counter);
+			gameActive = 2;
+			counter = setInterval(function() {
+				countDown();
+			}, 1000);
+		} else {
+			modifyScore();
+		}
+		showAnswer();
+		setTimeout(function() {
+			if (gameActive === 2) {
+				nextScramble();
+			}
+		}, 667);
+	} else {
+		input.className = textClass(input) + " scramble-incorrect";
+		setTimeout(function() {
+			input.className = textClass(input);
+			input.value = "";
+			}, 667);
+	}
+}
+
+// ENTER TO INPUT
+input.addEventListener("keyup", function(event) {
+	if (event.keyCode === 13) {
+		event.preventDefault();
+		scrambleCheck();
+	}
+})
+
+
+
+</script>
+<!------------------------------------------->
+{% endblock content %}

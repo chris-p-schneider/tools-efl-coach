@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="content spacer">
+	<h1 class="title no-select">
+		Edit Lists</h1>
+	<form method="POST" action="" class="user-form no-select">
+		{{ form.hidden_tag() }}
+		<fieldset>
+			<legend class="user-form-legend">New List</legend>
+			{{ form.title.label(class="user-form-label") }}
+			{% if form.title.errors %}
+				{{ form.title() }}
+					{% for error in form.title.errors %}
+						<span>{{ error }}</span>
+					{% endfor %}
+			{% else %}
+				{{ form.title(class="user-form-input") }}
+			{% endif %}
+
+			{{ form.words.label(class="user-form-label") }}
+			{% if form.words.errors %}
+				{{ form.words(class="user-form-input") }}
+					{% for error in form.words.errors %}
+						<span>{{ error }}</span>
+					{% endfor %}
+			{% else %}
+				{{ form.words(class="user-form-input") }}
+			{% endif %}
+
+		{{ form.submit(class="user-form-submit") }}
+		</fieldset>
+	</form>
+</div>
+
+
+</div>
+
+{% endblock content %}

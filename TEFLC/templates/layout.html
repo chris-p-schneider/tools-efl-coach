@@ -1,0 +1,125 @@
+<!-------------------------------------------->
+<!-- layout.html -->
+<!-------------------------------------------->
+<!DOCTYPE html>
+<html>
+<head>
+<!-------------------------------------------->
+	<!-- UTF & VIEWPORT -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-------------------------------------------->
+	<!-- TITLE -->
+	{% if title %} 
+		{% block title %}
+		<title>
+			{{ title }} – EFL.Coach
+		</title>
+		{% endblock %}
+	{% else %} 
+		<title>
+			Tools.EFL.Coach
+		</title>
+	{% endif %} 
+<!-------------------------------------------->
+	<!-- FAVICON -->
+	<link rel="icon" type="image/x-icon" href="{{url_for('static', filename='/img/favicons/favicon-32.ico') }}"/>
+<!-------------------------------------------->
+	<!-- SMACSS -->
+	<!-- global tag styles -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='teflc-base.css') }}">
+	<!-- ids and high level classes [.l-] -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='teflc-layout.css') }}">
+	<!-- classes and subclasses -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='teflc-module.css') }}">
+	<!-- !important and JS dependencies -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='teflc-state.css') }}">
+    <!-- @media rules-->
+	<link rel="stylesheet" href="{{ url_for('static', filename='teflc-media.css') }}">
+	<!-- independent themes -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='teflc-theme.css') }}">
+	<!-- animations -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='teflc-animation.css') }}">
+<!-------------------------------------------->
+	<!-- GOOGLE FONTS -->
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap&effect=neon|outline|emboss|shadow-multiple" rel="stylesheet">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&effect=fire|neon|outline|emboss|shadow-multiple">
+	<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<!-------------------------------------------->
+	<!-- SCRIPTS -->
+	<script src="{{ url_for('static', filename='teflc-scripts.js') }}"></script>
+<!-------------------------------------------->
+	<!-- STYLES -->
+	<style>
+		
+	</style>
+</head>
+<!-------------------------------------------->
+<body>
+<div id="main-body">
+<!-------------------------------------------->
+    <!-- Nav Menu -->
+    <img src="{{ url_for('static', filename='/img/layout/navToggle.png') }}"
+    	class="nav-link nav-button no-select" 
+    	id="nav-button" onclick="toggleNav()">
+    <div id="nav" class="no-select">
+        <a href="https://efl.coach/teachers/"><p class="nav-link" id="back-link">Teachers</p></a><!-- ◀ -->
+        <a href="{{ url_for('landingPage') }}"><p class="nav-link" id="title">EFL.Coach/Tools</p></a>
+        {% if current_user.is_authenticated %}
+        	<a href="{{ url_for('logoutPage') }}"><p class="nav-link account-link">Logout</p></a>
+        	<a href="{{ url_for('accountPage') }}"><p class="nav-link account-link-l">Account</p></a><!-- 👤 -->
+        {% else %}
+        	<a href="{{ url_for('registrationPage') }}"><p class="nav-link account-link">Register</p></a>
+        	<a href="{{ url_for('loginPage') }}"><p class="nav-link account-link-l">Login</p></a>
+        {% endif %}
+    </div>
+<!------------------------------------------->
+    <!-- Block Content -->
+    <div id="block">
+
+    <!-- FLASK FLASH MESSAGES -->
+ 	{% with messages = get_flashed_messages(with_categories=true) %}
+ 		{% if messages %}
+ 			{% for category, message in messages %}
+ 				<div>
+ 					<h2 class="{{ category }} no-select" onclick="clearAlert(this)">{{ message }}</h2>
+ 					</div>
+ 			{% endfor %}
+ 		{% endif %}
+ 	{% endwith %}
+
+    <!-- FLASK BLOCK CONTENT -->
+	{% block content %}{% endblock %}
+    <!-- -->
+
+    </div>
+<!-------------------------------------------->
+<!-- FOOT BLOCK -->
+<div id="foot-block">
+
+	<div id="foot-sad">
+	    <a href="https://efl.coach/contact/" target="_blank">
+	    <img src="{{ url_for('static', filename='/img/sad-banners/blue-banner.png') }}" 
+		    alt="900px x 100px Horizontal Sad Banner at Foot" 
+		    class="h-sad-banner"></a>
+		</div>
+
+    <div id="jump">
+	    <a href="#">
+	    <img src="{{ url_for('static', filename='/img/layout/toTop.png') }}"
+	    	id="to-top"></a>
+	    </div>
+
+    <div id="foot" class="no-select">
+	    © 2021, <a href="https://efl.coach/">
+	    EFL.Coach</a>. All Rights Reserved.
+	    </div>
+<!-- END FOOT BLOCK -->
+</div>
+<!-------------------------------------------->
+<!-- END MAIN BODY -->
+</div>
+<!-------------------------------------------->
+</body>
+</html>

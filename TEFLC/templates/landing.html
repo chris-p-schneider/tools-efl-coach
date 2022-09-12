@@ -1,0 +1,445 @@
+{% extends "layout.html" %}
+{% block content %}
+<!------------------------------------------->
+<div class="block-content">
+<!------------------------------------------->
+<!-- NO PREP APPS -->
+<div class="content apps spacer">
+    <a id="No-Prep-Apps">
+    <h1 class="title no-select">
+    No Prep Apps</h1></a>
+<!------------------------------------------->
+    <div class="icon" onmouseover="iconDisplay(this)" onmouseout="iconRevert(this)">
+        <a href="{{ url_for('fiveLetterWordsPage') }}">
+            <img src="{{ url_for('static', filename='/img/apps/icons/5letterwords.png') }}" 
+                class="app-icon" alt="5 Letter Words" title="5 Letter Words"></a>
+            <span class="app-title no-select">
+                5 Letter Words</span>
+                </div>
+<!------------------------------------------->
+    <div class="icon live" onmouseover="iconDisplay(this)" onmouseout="iconRevert(this)">
+        <a href="{{ url_for('twentyQsPage') }}">
+            <img src="{{ url_for('static', filename='/img/apps/icons/20qs.png') }}" class="app-icon" 
+                alt="20 Questions" title="20 Questions"></a>
+            <span class="app-title no-select">
+                20 Questions</span>
+                </div>
+<!------------------------------------------->
+    <div class="icon" onmouseover="iconDisplay(this)" onmouseout="iconRevert(this)">
+        <a>
+            <img src="{{ url_for('static', filename='/img/apps/icons/defaultIcon.png') }}" 
+                class="app-icon" alt="Agree or Disagree" title="Agree or Disagree"></a>
+            <span class="app-title no-select">
+                Agree or Disagree</span>
+                </div>
+<!------------------------------------------->
+    <div class="icon next" onmouseover="iconDisplay(this)" onmouseout="iconRevert(this)">
+        <a>
+            <img src="{{ url_for('static', filename='/img/apps/icons/categories.png') }}" 
+                class="app-icon" alt="Categories" title="Categories"></a>
+            <span class="app-title no-select">
+            Categories</span>
+                </div>
+<!------------------------------------------->
+    <div class="icon next" onmouseover="iconDisplay(this)" onmouseout="iconRevert(this)">
+        <a>
+            <img src="{{ url_for('static', filename='/img/apps/icons/emotionalreading.png') }}" 
+                class="app-icon" alt="Emotional Reading" title="Emotional Reading"></a>
+            <span class="app-title no-select">
+                Emotional Reading</span>
+                </div>
+<!------------------------------------------->
+    <div class="icon" onmouseover="iconDisplay(this)" onmouseout="iconRevert(this)">
+        <a>
+            <img src="{{ url_for('static', filename='/img/apps/icons/defaultIcon.png') }}" 
+                class="app-icon" alt="Flarble Darble!" title="Flarble Darble!"></a>
+            <span class="app-title no-select">
+                Flarble Darble!</span>
+                </div>
+<!------------------------------------------->
+    <div class="icon next" onmouseover="iconDisplay(this)" onmouseout="iconRevert(this)">
+        <a>
+            <img src="{{ url_for('static', filename='/img/apps/icons/hangman.png') }}" 
+                class="app-icon" alt="Hangman" title="Hangman"></a>
+            <span class="app-title no-select">
+                Hangman</span>
+                    </div>
+<!------------------------------------------->
+    <div class="icon live" onmouseover="iconDisplay(this)" onmouseout="iconRevert(this)">
+        <a href="{{ url_for('hotSeatPage') }}">
+            <img src="{{ url_for('static', filename='/img/apps/icons/hotseat.png') }}" 
+                class="app-icon" alt="Hot Seat!" title="Hot Seat!"></a>
+            <span class="app-title no-select">
+                Hot Seat!</span>
+                </div>
+<!------------------------------------------->
+    <div class="icon" onmouseover="iconDisplay(this)" onmouseout="iconRevert(this)">
+        <a>
+            <img src="{{ url_for('static', filename='/img/apps/icons/defaultIcon.png') }}" 
+                class="app-icon" alt="Heads Down, 7 Up!" title="Heads Down, 7 Up!"></a>
+            <span class="app-title no-select">
+                Heads Down, 7 Up!</span>
+                </div>
+<!------------------------------------------->
+    <div class="icon live" onmouseover="iconDisplay(this)" onmouseout="iconRevert(this)">
+        <a href="{{ url_for('pogglePage') }}">
+            <img src="{{ url_for('static', filename='/img/apps/icons/poggle.png') }}" 
+                class="app-icon" alt="Poggle" title="Poggle"></a>
+            <span class="app-title no-select">
+                Poggle</span>
+                </div>
+<!------------------------------------------->
+    <div class="icon" onmouseover="iconDisplay(this)" onmouseout="iconRevert(this)">
+        <a>
+            <img src="{{ url_for('static', filename='/img/apps/icons/defaultIcon.png') }}" 
+                class="app-icon" alt="Read & Recall" title="Read & Recall"></a>
+            <span class="app-title no-select">
+                Read & Recall</span>
+                </div>
+<!------------------------------------------->
+    <div class="icon" onmouseover="iconDisplay(this)" onmouseout="iconRevert(this)">
+        <a>
+            <img src="{{ url_for('static', filename='/img/apps/icons/defaultIcon.png') }}" 
+                class="app-icon" alt="Syllable Counter" title="Syllable Counter"></a>
+            <span class="app-title no-select">
+                Syllable Counter</span>
+                </div>
+<!------------------------------------------->
+    <div class="icon next" onmouseover="iconDisplay(this)" onmouseout="iconRevert(this)">
+        <a>
+            <img src="{{ url_for('static', filename='/img/apps/icons/targetpractice.png') }}" 
+                class="app-icon" alt="Target Practice" title="Target Practice"></a>
+            <span class="app-title no-select">
+                Target Practice</span>
+                </div>
+<!------------------------------------------->
+    <div class="icon" onmouseover="iconDisplay(this)" onmouseout="iconRevert(this)">
+        <a>
+            <img src="{{ url_for('static', filename='/img/apps/icons/defaultIcon.png') }}" 
+                class="app-icon" alt="True or False?" title="True or False?"></a>
+            <span class="app-title no-select">
+                True or False?</span>
+                </div>
+<!------------------------------------------->
+    <div class="icon" onmouseover="iconDisplay(this)" onmouseout="iconRevert(this)">
+        <a>
+            <img src="{{ url_for('static', filename='/img/apps/icons/defaultIcon.png') }}" 
+                class="app-icon" alt="Visual Noun Combiner" title="Visual Noun Combiner"></a>
+            <span class="app-title no-select">
+                Visual Noun Combiner</span>
+                </div>
+<!------------------------------------------->
+    <div class="icon live" onmouseover="iconDisplay(this)" onmouseout="iconRevert(this)">
+        <a href="{{ url_for('vsgPage') }}">
+            <img src="{{ url_for('static', filename='/img/apps/icons/vsg.png') }}" 
+                class="app-icon" alt="Visual Story Generator" title="Visual Story Generator"></a>
+            <span class="app-title no-select">
+                Visual Story Generator</span>
+                </div>
+<!------------------------------------------->
+    <div class="icon" onmouseover="iconDisplay(this)" onmouseout="iconRevert(this)">
+        <a>
+            <img src="{{ url_for('static', filename='/img/apps/icons/defaultIcon.png') }}" 
+                class="app-icon" alt="Wake Up & Sleep!" title="Wake Up & Sleep!"></a>
+            <span class="app-title no-select">
+                Wake Up & Sleep!</span>
+                </div>
+<!------------------------------------------->
+    <div class="icon next" onmouseover="iconDisplay(this)" onmouseout="iconRevert(this)">
+        <a>
+            <img src="{{ url_for('static', filename='/img/apps/icons/wouldyourather.png') }}" 
+                class="app-icon" alt="Would You Rather?" title="Would You Rather?"></a>
+            <span class="app-title no-select">
+                Would You Rather?</span>
+                </div>
+    </div> <!-- END NO PREP APPS -->
+<!------------------------------------------->
+<!-- MIDDLE SAD -->
+<div id="mid-sad">
+    <a href="https://efl.coach/contact/" target="_blank">
+    <img src="{{ url_for('static', filename='/img/sad-banners/orange-banner.png') }}" 
+        alt="900px x 100px Horizontal Sad Banner in Middle" 
+        class="h-sad-banner">
+        </a>
+	</div>
+<!------------------------------------------->
+<!-- VOCABULARY APPS -->
+<div class="content apps spacer">
+    <a id="Vocabulary-Apps">
+    <h1 class="title no-select">
+        Vocabulary Apps
+        </h1></a>
+    <!-- Login prompt / vocab loader -->
+    {% if current_user.is_active %}
+        <p class="status-para no-select">
+        Hi {{ current_user.username }}!
+
+        {% if current_user.connected != 0 %}
+            Your active word list is "<a href="{{ url_for('listPage', 
+                listId=current_user.connected) }}"><span class="blue-font">{{ connectedList.title }}</span></a>".</p>
+            
+            <p class="status-para font18 no-select" 
+                onclick="clearAlert(this)">
+            To connect a different list, go to 
+            <a href="{{ url_for('accountPage') + '#Account-Lists' }}" 
+                class="blue-font">My Lists</a>
+                 > List > Connect!</p>
+
+        {% else %}
+            <a href="{{ url_for('newListPage') }}" 
+                class="blue-font">
+            Add some new word lists</a>
+             to use Vocabulary Apps!</p>
+        {% endif %}
+
+    {% else %}
+        <p class="status-para no-select">Please 
+        <a href="{{ url_for('loginPage') }}" class="blue-font">
+        log in</a> to use vocabulary apps!</p>
+
+    {% endif %}
+<!------------------------------------------->
+<div class="icon" onmouseover="iconDisplay(this)" onmouseout="iconRevert(this)">
+    <a>
+        <img src="{{ url_for('static', filename='/img/apps/icons/defaultIcon.png') }}" 
+            class="app-icon" alt="Correction" title="Correction"></a>
+        <span class="app-title no-select">      
+            Correction</span>           
+            </div>
+        <!-- BANK: grammar, punctuation, spelling, etc. -->
+<!------------------------------------------->
+<div class="icon" onmouseover="iconDisplay(this)" onmouseout="iconRevert(this)">
+    <a>
+        <img src="{{ url_for('static', filename='/img/apps/icons/defaultIcon.png') }}" 
+            class="app-icon" alt="Image Revealer" title="Image Revealer"></a>
+        <span class="app-title no-select">              
+            Image Revealer</span>           
+            </div>
+        <!-- BY TYPE: bubbles / pixels / slices / etc-->
+<!------------------------------------------->
+<div class="icon" onmouseover="iconDisplay(this)" onmouseout="iconRevert(this)">
+    <a>
+        <img src="{{ url_for('static', filename='/img/apps/icons/defaultIcon.png') }}" 
+            class="app-icon" alt="Jeopardy Generator" title="Jeopardy Generator"></a>
+        <span class="app-title no-select">              
+            Jeopardy Generator</span>           
+           </div>
+<!------------------------------------------->
+<div class="icon next" onmouseover="iconDisplay(this)" onmouseout="iconRevert(this)">
+    <a>
+        <img src="{{ url_for('static', filename='/img/apps/icons/matching.png') }}" 
+            class="app-icon" alt="Matching" title="Matching"></a>
+        <span class="app-title no-select">
+            Matching</span>
+            </div>
+<!------------------------------------------->
+<div class="icon" onmouseover="iconDisplay(this)" onmouseout="iconRevert(this)">
+    <a>
+        <img src="{{ url_for('static', filename='/img/apps/icons/defaultIcon.png') }}" 
+            class="app-icon" alt="Match My 5" title="Match My 5"></a>
+        <span class="app-title no-select">      
+            Match My 5</span>
+            </div>
+<!------------------------------------------->
+<div class="icon next" onmouseover="iconDisplay(this)" onmouseout="iconRevert(this)">
+    <a>
+        <img src="{{ url_for('static', filename='/img/apps/icons/defaultIcon.png') }}" 
+            class="app-icon" alt="Mnemonic Generator" title="Mnemonic Generator"></a>
+        <span class="app-title no-select">
+            Mnemonic Generator</span>
+            </div>
+        <!-- chunking / rhyme / color / image / humor / sound -->
+<!------------------------------------------->
+<div class="icon next" onmouseover="iconDisplay(this)" onmouseout="iconRevert(this)">
+    <a>
+        <img src="{{ url_for('static', filename='/img/apps/icons/oddoneout.png') }}" 
+            class="app-icon" alt="Odd One Out" title="Odd One Out"></a>
+        <span class="app-title no-select">      
+            Odd One Out</span>
+            </div>
+<!------------------------------------------->
+<div class="icon" onmouseover="iconDisplay(this)" onmouseout="iconRevert(this)">
+    <a>
+        <img src="{{ url_for('static', filename='/img/apps/icons/defaultIcon.png') }}" 
+            class="app-icon" alt="Sentence Auction" title="Sentence Auction"></a>
+        <span class="app-title no-select">
+            Sentence Auction</span>
+            </div>
+<!------------------------------------------->
+<div class="icon next" onmouseover="iconDisplay(this)" onmouseout="iconRevert(this)">
+    <a>
+        <img src="{{ url_for('static', filename='/img/apps/icons/defaultIcon.png') }}" 
+            class="app-icon" alt="Telepathy" title="Telepathy"></a>
+        <span class="app-title no-select">
+            Telepathy</span>
+            </div>
+<!------------------------------------------->
+<div class="icon" onmouseover="iconDisplay(this)" onmouseout="iconRevert(this)">
+    <a>
+        <img src="{{ url_for('static', filename='/img/apps/icons/defaultIcon.png') }}" 
+            class="app-icon" alt="Vocabulary Recall" title="Vocabulary Recall"></a>
+        <span class="app-title no-select">
+            Vocabulary Recall</span>
+            </div>
+<!------------------------------------------->
+<div class="icon" onmouseover="iconDisplay(this)" onmouseout="iconRevert(this)">
+    <a>
+        <img src="{{ url_for('static', filename='/img/apps/icons/defaultIcon.png') }}" 
+            class="app-icon" alt="Wh- Question Generator" title="Wh- Question Generator"></a>
+        <span class="app-title no-select">      
+            Wh- Question Generator</span>
+            </div>
+<!------------------------------------------->
+<div class="icon live" onmouseover="iconDisplay(this)" onmouseout="iconRevert(this)">
+    <a href="{{ url_for('unscramblePage') }}">
+        <img src="{{ url_for('static', filename='/img/apps/icons/unscramble.png') }}" 
+            class="app-icon" alt="Unscramble" title="Unscramble"></a>
+        <span class="app-title no-select">
+            Unscramble</span>
+            </div>
+<!------------------------------------------->
+<div class="icon" onmouseover="iconDisplay(this)" onmouseout="iconRevert(this)">
+    <a href="{{ url_for('appExportPage') }}">
+        <img src="{{ url_for('static', filename='/img/apps/icons/webappexport.png') }}" 
+            class="app-icon" alt="App Export" title="App Export"></a>
+        <span class="app-title no-select">
+            App Export</span>
+            </div>
+<!------------------------------------------->
+<div class="icon live" onmouseover="iconDisplay(this)" onmouseout="iconRevert(this)">
+    <a href="{{ url_for('wordLottoPage') }}">
+        <img src="{{ url_for('static', filename='/img/apps/icons/wordlotto.png') }}" 
+            class="app-icon" alt="Word Lotto" title="Word Lotto"></a>
+        <span class="app-title no-select">
+            Word Lotto</span>
+            </div>
+    </div> <!-- END VOCAB APPS -->
+<!-------------------------------------------->
+<!-- PRINT APPS -->
+<div class="content apps spacer">
+    <a id="Print-Apps">
+    <h1 class="title no-select">
+        Print Apps</h1></a>
+<!------------------------------------------->
+<div class="icon live" onmouseover="iconDisplay(this)" onmouseout="iconRevert(this)">
+    <a href="{{ url_for('wordsearchPage') }}">
+        <img src="{{ url_for('static', filename='/img/apps/icons/wordsearch.png') }}" 
+            class="app-icon" alt="Wordsearch Generator" title="Wordsearch Generator"></a>
+        <span class="app-title no-select">
+            Wordsearch Generator</span>         
+            </div>
+<!------------------------------------------->
+<div class="icon made" onmouseover="iconDisplay(this)" onmouseout="iconRevert(this)">
+    <a>
+        <img src="{{ url_for('static', filename='/img/apps/icons/worksheet.png') }}" 
+            class="app-icon" alt="Worksheet Generator" title="Worksheet Generator"></a>
+        <span class="app-title no-select">
+            Worksheet Generator</span>
+            </div>
+    </div> <!-- END PRINT APPS -->
+<!------------------------------------------->
+<!-- CLASSROOM APPS -->
+<div class="content apps spacer hidden">
+    <a id="Classroom-Apps">
+    <h1 class="title no-select">
+        Classroom Apps</h1></a>
+<!------------------------------------------->
+<div class="icon" onmouseover="iconDisplay(this)" onmouseout="iconRevert(this)">
+    <a>
+        <img src="{{ url_for('static', filename='/img/apps/icons/defaultIcon.png') }}" 
+            class="app-icon" alt="Double Spin Wheel" title="Double Spin Wheel"></a>
+        <span class="app-title no-select">      
+            Double Spin Wheel</span>
+            </div>
+<!------------------------------------------->
+<div class="icon" onmouseover="iconDisplay(this)" onmouseout="iconRevert(this)">
+    <a>
+        <img src="{{ url_for('static', filename='/img/apps/icons/defaultIcon.png') }}" 
+            class="app-icon" alt="Red Herring" title="Red Herring"></a>
+        <span class="app-title no-select">
+            Red Herring</span>
+            </div>
+<!------------------------------------------->
+<div class="icon" onmouseover="iconDisplay(this)" onmouseout="iconRevert(this)">
+    <a>
+        <img src="{{ url_for('static', filename='/img/apps/icons/defaultIcon.png') }}" 
+            class="app-icon" alt="Google Slides Generator" title="Google Slides Generator"></a>
+        <span class="app-title no-select">      
+            Google Slides Generator</span>
+            </div>
+<!------------------------------------------->
+<div class="icon next" onmouseover="iconDisplay(this)" onmouseout="iconRevert(this)">
+    <a>
+        <img src="{{ url_for('static', filename='/img/apps/icons/defaultIcon.png') }}" 
+            class="app-icon" alt="Student Feedback Generator" title="Student Feedback Generator"></a>
+        <span class="app-title no-select">      
+            Student Feedback Generator</span>
+            </div>
+<!------------------------------------------->
+<div class="icon" onmouseover="iconDisplay(this)" onmouseout="iconRevert(this)">
+    <a>
+        <img src="{{ url_for('static', filename='/img/apps/icons/defaultIcon.png') }}" 
+            class="app-icon" alt="Webapp Multi-Search" title="Webapp Multi-Search"></a>
+        <span class="app-title no-select">      
+            Webapp Multi-Search</span>
+            </div>
+    </div> <!-- END CLASSROOM APPS -->
+<!------------------------------------------->
+<!-- YOLA APPS -->
+<div class="content apps spacer hidden" style="margin-bottom: 10px;">
+    <a id="Yola-Apps">
+    <h1 class="title no-select">
+        Yola Apps</h1></a>
+    <p class="status-para no-select">
+        Enjoy using these apps? </p>
+    <p class="status-para font18 no-select">
+        Consider sharing 
+    <a href="https://efl.coach/" target="_blank" 
+        class="blue-font">
+        EFL.Coach</a> with your friends!
+        </p>
+<!------------------------------------------->
+<div class="icon next" onmouseover="iconDisplay(this)" onmouseout="iconRevert(this)">
+    <a>
+        <img src="{{ url_for('static', filename='/img/apps/icons/defaultIcon.png') }}" 
+            class="app-icon" alt="Daily Feedback Generator" title="Daily Feedback Generator"></a>
+        <span class="app-title no-select">      
+            Daily Feedback Generator</span>
+            </div>
+<!------------------------------------------->
+<div class="icon" onmouseover="iconDisplay(this)" onmouseout="iconRevert(this)">
+    <a>
+        <img src="{{ url_for('static', filename='/img/apps/icons/defaultIcon.png') }}" 
+            class="app-icon" alt="Midterm Feedback Generator" title="Midterm Feedback Generator"></a>
+        <span class="app-title no-select">      
+            Midterm Feedback Generator</span>
+            </div>
+<!------------------------------------------->
+<div class="icon" onmouseover="iconDisplay(this)" onmouseout="iconRevert(this)">
+    <a>
+        <img src="{{ url_for('static', filename='/img/apps/icons/defaultIcon.png') }}" 
+            class="app-icon" alt="Presentation Feedback Generator" title="Presentation Feedback Generator"></a>
+        <span class="long-title no-select">     
+            Presentation Feedback Generator</span>
+            </div>
+<!------------------------------------------->
+<div class="icon" onmouseover="iconDisplay(this)" onmouseout="iconRevert(this)">
+    <a>
+        <img src="{{ url_for('static', filename='/img/apps/icons/defaultIcon.png') }}" 
+            class="app-icon" alt="Final Feedback Generator" title="Final Feedback Generator"></a>
+        <span class="app-title no-select">      
+            Final Feedback Generator</span>
+            </div>
+<!------------------------------------------->
+<div class="icon" onmouseover="iconDisplay(this)" onmouseout="iconRevert(this)">
+    <a>
+        <img src="{{ url_for('static', filename='/img/apps/icons/defaultIcon.png') }}" 
+            class="app-icon" alt="JS Vocabulary Lexicon" title="JS Vocabulary Lexicon"></a>
+        <span class="app-title no-select">
+            JS Vocabulary Lexicon</span>
+            </div>          
+    </div> <!-- END YOLA APPS -->
+<!-------------------------------------------->
+</div> <!-- END CONTENT -->
+<!-------------------------------------------->
+{% endblock content %}

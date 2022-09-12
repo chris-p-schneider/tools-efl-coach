@@ -1,0 +1,51 @@
+{
+    "word": "pear",
+    "wordV": 0,
+    "ipa": "/pɛr/",
+    "audio": "https://lex-audio.useremarkable.com/mp3/pear_us_1.mp3",
+    "type": "noun",
+    "typeV": 0,
+    "definition": "a sweet fruit that is narrow near the stem and rounded at the other end and that grows on a tree",
+    "definitionV": 0,
+    "images": [
+        "https://live.staticflickr.com/2946/15212122077_819ce8b3d0_b.jpg",
+        "https://images.unsplash.com/photo-1514756331096-242fdeb70d4a?ixlib=rb-1.2.1",
+        "https://purepng.com/public/uploads/large/purepng.com-asian-pearfruitsasian-pearpyrus-pyrifoliapearnashichinese-pearkorean-pearjapanese-peartaiwanese-pearnashi-pear-981524758826plryr.png"
+    ],
+    "imagesV": 0,
+    "imageSelected": "",
+    "syllables": 1,
+    "syllablesV": 0,
+    "sentence": "The pear trees are blossoming out early this year.",
+    "sentenceV": 0,
+    "related": [
+        "pearl",
+        "pearler",
+        "pearlescent",
+        "pearlike",
+        "pearls",
+        "pearly",
+        "pearmain",
+        "pears",
+        "peart",
+        "peary"
+    ],
+    "relatedV": 0,
+    "synonyms": [],
+    "synonymsV": 0,
+    "antonyms": [],
+    "antonymsV": 0,
+    "rhymes": [
+        "air",
+        "bear",
+        "care",
+        "chair",
+        "fair",
+        "fare",
+        "flare",
+        "square",
+        "tear",
+        "wear"
+    ],
+    "rhymesV": 0
+}

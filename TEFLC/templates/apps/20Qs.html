@@ -1,0 +1,219 @@
+{% extends "layout.html" %}
+{% block content %}
+<!------------------------------------------->
+<style>
+	div#twentyqs {
+		display: inline-block;
+		width: 100%;
+		background-color: white;
+		margin-top: -5px;
+	}
+	table#qs {
+		float: left;
+		width: 75%;
+        height: 80vh;
+		border: 0px solid #0c4b9e;
+		border-collapse: separate;
+		border-spacing: 1vw;
+		margin: 0px;
+		text-align: center;
+		background-color: white;
+	}
+	tr.qsr, td.qs {
+		border: 1px solid red;
+		padding: 0px;
+		margin: 0px;
+		text-align: center;
+	}
+	td.qs {
+		font-family: Roboto;
+		font-weight: 900;
+		font-size: 6vw;
+		border-radius: 2vw;
+		box-shadow: 0px 0px 5px black;
+		border: 0vw solid #0c4b9e;
+		padding: 0px;
+		background-color: white;
+	}
+	div#right {
+		display: inline-block;
+		float: right;
+		width: 25%;
+		background-color: white;
+		text-align: center;
+		font-family: Roboto;
+	}
+	p#number {
+		color: black;
+		text-shadow: 1px 1px 3px hsl(0,0%, 20%);
+		font-size: 15vw;
+		font-weight: 900;
+		margin: -2.5vh 0px -3.5vh 0px;
+		padding: 0px;
+	}
+	p#questions {
+		color: black;
+		text-shadow: 1px 1px 1px hsl(0,0%, 30%);
+		font-size: 4vw;
+		font-weight: 500;
+		margin: 0px 0px -2vh 0px;
+		padding: 0px;
+	}
+	table#answers {
+		width: 100%;
+		border: 0px solid black;
+		background-color: white;
+		border-collapse: separate;
+		border-spacing: 1vw;
+		text-align: center;
+		background-color: white;
+		margin: 0px;
+		padding: 0px 10% 0px 10%;
+	}
+	td.yes, td.sometimes, td.no {
+		display: block;
+		border: 0px solid black;
+		border-radius: 1vw;
+		padding: 10px;
+		background-color: white;
+		box-shadow: 0px 0px 5px black;
+		font-size: 2vw;
+		font-weight: 300;
+	}
+	td.yes {
+		background-color: #99ff66;
+	}
+	td.sometimes {
+		background-color: #ffff66;
+	}
+	td.no {
+		background-color: #ff6666;
+	}
+	p#playagain {
+		z-index: 1;
+		visibility: hidden;
+		position: relative;
+		bottom: 1.5vw;
+		font-style: Roboto;
+		font-weight: 900;
+		font-size: 6vh;
+		background-color: #ffa630;
+		color: white;
+		margin: 0px 10% 0px 10%;
+		padding: 3vh 1vw 3vh 1vw;
+		border: 0px solid black;
+		border-radius: 2vw;
+		box-shadow: 0px 0px 3px black;
+		text-shadow: 0px 0px 5px #666666;
+	}
+</style>
+<!------------------------------------------->
+<div class="block-content">
+<div id="twentyqs" class="no-select">
+<table id="qs">
+	<tr class="qsr">
+		<td class="qs">1</td>
+		<td class="qs">2</td>
+		<td class="qs">3</td>
+		<td class="qs">4</td>
+	</tr>
+	<tr class="qsr">
+		<td class="qs">5</td>
+		<td class="qs">6</td>
+		<td class="qs">7</td>
+		<td class="qs">8</td>
+	</tr>
+	<tr class="qsr">
+		<td class="qs">9</td>
+		<td class="qs">10</td>
+		<td class="qs">11</td>
+		<td class="qs">12</td>
+	</tr>
+	<tr class="qsr">
+		<td class="qs">13</td>
+		<td class="qs">14</td>
+		<td class="qs">15</td>
+		<td class="qs">16</td>
+	</tr>
+	<tr class="qsr">
+		<td class="qs">17</td>
+		<td class="qs">18</td>
+		<td class="qs">19</td>
+		<td class="qs">20</td>
+	</tr>
+</table>
+<!------------------------------------------->
+<div id="right">
+	<p id="number">20</p>
+	<p id="questions">QUESTIONS</p>
+<!------------------------------------------->
+	<br>
+	<table id="answers">
+		<tr class="yes"><td class="yes" onclick="answerQyes()">
+			YES
+		</td></tr>
+		<tr class="sometimes"><td class="sometimes" onclick="answerQsometimes()">
+			SOMETIMES
+		</td></tr>
+		<tr class="no"><td class="no" onclick="answerQno()">
+			NO
+		</td></tr>
+	</table>
+<!------------------------------------------->
+	<br>
+	<p id="playagain" onclick="gameOver()">
+	Play again?</p>
+</div>
+<!------------------------------------------->
+</div>
+</div>
+<script>
+	var questionCounter = 0;
+	var qs = document.getElementsByClassName("qs");
+	function currentQ() {
+		document.getElementById("number").innerText=(20-questionCounter);
+		if (questionCounter <19) {
+			document.getElementById("questions").innerText="QUESTIONS"
+		}
+		if (questionCounter == 19) {
+			document.getElementById("questions").innerText="QUESTION";
+		}
+		if (questionCounter == 20) {
+			document.getElementById("questions").innerText="QUESTIONS"
+		}
+	}
+	function checkReplay() {
+		if (questionCounter == 20) {
+			document.getElementById("playagain").style.visibility = "visible";
+		}
+	}
+	function answerQyes() {
+		qs[questionCounter].style="background-color: #99ff66;";
+		questionCounter++;
+		currentQ();
+		checkReplay();
+	}
+	function answerQsometimes() {
+		qs[questionCounter].style="background-color: #ffff66;";
+		questionCounter++;
+		currentQ();
+		checkReplay();
+	}
+	function answerQno() {
+		qs[questionCounter].style="background-color: #ff6666;";
+		questionCounter++;
+		currentQ();
+		checkReplay();
+	}
+	function gameOver() {
+		var i;
+		for (i=0; i<20; i++) {
+			qs[i].style="background-color: white;";
+			document.getElementById("playagain").style.visibility = "hidden";
+			questionCounter = 0;
+			currentQ();
+		}
+	}
+</script>
+<!------------------------------------------->
+{% endblock content %}

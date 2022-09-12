@@ -1,0 +1,169 @@
+{% extends "layout.html" %}
+{% block content %}
+<!------------------------------------------->
+<!-- STYLES -->
+<style type="text/css">
+	#export-submit-button {
+		margin: 20px 0px 0px 0px;
+		font-size: 32px;
+		width: 100%;
+	}
+	#export-submit-button:hover {
+	}
+
+</style>
+
+<!------------------------------------------->
+
+<!-- WEBAPP EXPORT -->
+<div id="webapp-export">
+	<div class="content spacer">
+
+<!------------------------------------------->
+	
+	<!-- FORM -->
+	<form method="POST" action="" 
+		id="webapp-export-form">
+
+		<!-- KAHOOT -->
+		<a href="https://kahoot.com/library/quiz-spreadsheet-template/" 
+			target="_blank">
+		<img src="{{ url_for('static', filename='/img/apps/webapp-export/kahoot-thumb.png') }}"
+			alt="Kahoot Thumbnail" title="Kahoot">
+			</a>
+
+		<!-- QUIZIZZ -->
+		<a href="https://quizizz.zendesk.com/hc/en-us/articles/115003688491-Importing-a-quiz-from-a-spreadsheet" 
+			target="_blank">
+		<img src="{{ url_for('static', filename='/img/apps/webapp-export/quizizz-thumb.png') }}"
+			alt="Quizizz Thumbnail" title="Quizizz">
+			</a>
+
+		<!-- GIMKIT -->
+		<a href="https://help.gimkit.com/en/article/creating-a-kit-from-a-csv-file-wv72i9/" 
+			target="_blank">
+		<img src="{{ url_for('static', filename='/img/apps/webapp-export/gimkit-thumb.png') }}"
+			alt="Gimkit Thumbnail" title="Gimkit">
+			</a>
+
+		<h2>Export to Third-Party Site:</h2>
+		<input type="radio" name="kahoot">
+		<label for="kahoot">Kahoot</label>
+		<input type="radio" name="quizizz">
+		<label for="quizizz">Quizizz</label>
+		<input type="radio" name="gimkit">
+		<label for="gimkit">Gimkit</label>
+		<br><br>
+
+		<h2>List Stats:</h2>
+		<!-- :: possibly incorporate into info box :: -->
+		{% if current_user.is_active %}
+			Connected list: {{ current_user.wordlists[current_user.connected].title }}<br>
+			Words in list: {{ current_user.wordlists[current_user.connected].text }}<br>
+			Total words: {{ current_user.wordlists[current_user.connected].wordIds|length }}<br>
+			<br>
+
+		{% else %}
+			You need to <a href="{{ url_for('loginPage') }}">log in</a>
+			to use this feature.
+
+		{% endif %}
+
+		<h2>Vocabulary Content:</h2>
+		<!-- :: needs validation for minimum questions :: -->
+		<input type="checkbox" id="content1" name="content1" value="IPA">
+		<label for="content-">Word IPA</label><br>
+		<input type="checkbox" id="content2" name="content2" value="Type">
+		<label for="content-">Word Type (Part of Speech)</label><br>
+		<input type="checkbox" id="content3" name="content3" value="Definition" checked>
+		<label for="content-">Word Definition</label><br>
+		<input type="checkbox" id="content4" name="content4" value="Syllables">
+		<label for="content-">Word Syllable Count</label><br>
+		<input type="checkbox" id="content5" name="content5" value="Synonyms">
+		<label for="content-">Word Synonyms</label><br>
+		<input type="checkbox" id="content6" name="content6" value="Antonyms">
+		<label for="content-">Word Antonyms</label><br>
+		<input type="checkbox" id="content7" name="content7" value="Rhymes">
+		<label for="content-">Word Rhymes</label><br>
+		<br>
+
+		<h2>Randomize:</h2>
+		<input type="checkbox" id="randomize2" name="randomize2" value="Content" checked>
+		<label for="randomize-content">Selected Vocabulary Content</label><br>
+		<input type="checkbox" id="randomize1" name="randomize1" value="Order" checked>
+		<label for="randomize-order">Question Order</label><br>
+		<br>
+
+		<h2>Total Questions:</h2>
+		<label for="total-questions">Questions to generate:</label>
+		<input type="number" name="total-questions" min=5 max=100 value=5>
+		<br>
+		Maximum possible: <span id="maximum-questions">0</span>
+		<br><br>
+
+		<h2>Time Per Question:</h2>
+		<input type="radio" name="time-per-question" value="TPQ5">
+		<label for="TPQ5">5 seconds</label><br>
+		<input type="radio" name="time-per-question" value="TPQ10">
+		<label for="TPQ10">10 seconds</label><br>
+		<input type="radio" name="time-per-question" value="TPQ20">
+		<label for="TPQ20">20 seconds</label><br>
+		<input type="radio" name="time-per-question" value="TPQ30" checked>
+		<label for="TPQ30">30 seconds</label><br>
+		<input type="radio" name="time-per-question" value="TPQ60">
+		<label for="TPQ60">60 seconds</label><br>
+		<input type="radio" name="time-per-question" value="TPQ90">
+		<label for="TPQ90">90 seconds</label><br>
+		<input type="radio" name="time-per-question" value="TPQ120">
+		<label for="TPQ120">120 seconds</label><br>
+		<input type="radio" name="time-per-question" value="TPQ240">
+		<label for="TPQ240">240 seconds</label>
+		<br><br>
+
+		<h2>Info Box:</h2>
+		<div class="info-box">
+			<div>Words: 
+					{% if current_user.is_active %}
+						{{ current_user.wordlists[current_user.connected].wordIds|length }}
+			
+					{% else %}
+						0
+			
+					{% endif %}
+				</div>
+			
+			<div>Questions: 
+				<span id="info-box-questions"></span>
+				</div>
+			
+			<div>Time Per Q:
+				<span id="info-box-time-per-q"></span>
+				</div>
+			
+			<div>Max Time:
+				<span id="info-box-max-time"></span>
+				</div>
+
+		</div><!-- END INFO BOX-->
+
+		<input type="submit" id="export-submit-button"
+				class="tint-green">
+			</input>
+
+	</div><!-- END CONTENT-->
+
+</div><!-- END WEBAPP EXPORT -->
+
+<!------------------------------------------->
+
+<!-- JAVASCRIPT -->
+<script type="text/javascript">
+// NOTES
+// alert minimums
+// loading screens...
+
+
+</script>
+
+<!------------------------------------------->
+{% endblock content %}

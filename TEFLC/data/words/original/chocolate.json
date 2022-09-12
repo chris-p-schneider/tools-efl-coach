@@ -1,0 +1,73 @@
+{
+    "word": "chocolate",
+    "wordV": 0,
+    "ipa": "/ˈtʃɑk(ə)lət/",
+    "audio": "https://lex-audio.useremarkable.com/mp3/chocolate_us_1_rr.mp3",
+    "type": "noun",
+    "typeV": 0,
+    "definition": "a food that is made from cacao beans and that is eaten as candy or used as a flavoring ingredient in other sweet foods",
+    "definitionV": 0,
+    "images": [
+        "https://live.staticflickr.com/1541/24496930596_c13221a6b3_b.jpg",
+        "https://images.unsplash.com/photo-1582176604856-e824b4736522?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D",
+        "https://purepng.com/public/uploads/large/purepng.com-chocolate-cakechocolatechocolate-cakecakechocolate-gateausweet-1411527231772loeeo.png"
+    ],
+    "imagesV": 0,
+    "imageSelected": "",
+    "syllables": 2,
+    "syllablesV": 0,
+    "sentence": "He licked the chocolate off his fingers.",
+    "sentenceV": 0,
+    "related": [
+        "chocola",
+        "chocolat",
+        "chocolate bar",
+        "chocolate box",
+        "chocolate chip cookie",
+        "chocolate drop",
+        "chocolates",
+        "chocolatey",
+        "chocolatier",
+        "chocolaty"
+    ],
+    "relatedV": 0,
+    "synonyms": [
+        "amber",
+        "bay",
+        "beige",
+        "bister",
+        "brick",
+        "bronze",
+        "buff",
+        "chestnut",
+        "cinnamon",
+        "cocoa"
+    ],
+    "synonymsV": 0,
+    "antonyms": [
+        "ablaze",
+        "bright",
+        "chromatic",
+        "colored",
+        "colorful",
+        "deep",
+        "gay",
+        "motley",
+        "multicolored",
+        "rich"
+    ],
+    "antonymsV": 0,
+    "rhymes": [
+        "auklet",
+        "bonnet",
+        "choctaw",
+        "docket",
+        "fallen",
+        "gauntlet",
+        "locket",
+        "olive",
+        "pocket",
+        "rocket"
+    ],
+    "rhymesV": 0
+}

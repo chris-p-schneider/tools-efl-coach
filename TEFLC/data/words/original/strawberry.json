@@ -1,0 +1,65 @@
+{
+    "word": "strawberry",
+    "wordV": 0,
+    "ipa": "/ˈstrɔˌbɛri/",
+    "audio": "https://lex-audio.useremarkable.com/mp3/strawberry_us_1.mp3",
+    "type": "noun",
+    "typeV": 0,
+    "definition": "a soft, juicy red fruit that grows on a low plant with white flowers",
+    "definitionV": 0,
+    "images": [
+        "https://live.staticflickr.com/3875/18660387624_fd60343915_b.jpg",
+        "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?ixlib=rb-1.2.1",
+        "https://purepng.com/public/uploads/large/red-juicy-strawberry-1rr.png"
+    ],
+    "imagesV": 0,
+    "imageSelected": "",
+    "syllables": 3,
+    "syllablesV": 0,
+    "sentence": "He spread some strawberry jam on his toast.",
+    "sentenceV": 0,
+    "related": [
+        "strawberries",
+        "strawberry blonde",
+        "strawberry bush",
+        "strawberry daiquiri",
+        "strawberry geranium",
+        "strawberry hemangioma",
+        "strawberry jam",
+        "strawberry mark",
+        "strawberry milk",
+        "strawberry tomato"
+    ],
+    "relatedV": 0,
+    "synonyms": [
+        "albino",
+        "auricomous",
+        "bleached",
+        "champagne",
+        "fair",
+        "fair-haired",
+        "flaxen",
+        "golden-haired",
+        "light",
+        "pale"
+    ],
+    "synonymsV": 0,
+    "antonyms": [
+        "brunet",
+        "brunette"
+    ],
+    "antonymsV": 0,
+    "rhymes": [
+        "bird cherry",
+        "blueberry",
+        "canary",
+        "denary",
+        "glengarry",
+        "hackberry",
+        "library",
+        "mulberry",
+        "primary",
+        "raspberry"
+    ],
+    "rhymesV": 0
+}

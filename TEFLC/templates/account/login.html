@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% block content %}
+<!------------------------------------------->
+<div class="content spacer no-edges no-padding">
+	<!-- LOGIN FORM -->
+	<div class="login-form">
+	<form method="POST" action="" class="user-form no-select">
+		{{ form.hidden_tag() }}
+		<fieldset>
+			<legend class="user-form-legend">Log In</legend>
+			{{ form.email.label(class="user-form-label") }}
+			{% if form.email.errors %}
+				{{ form.email(class="user-form-input") }}
+					{% for error in form.email.errors %}
+						<span>{{ error }}</span>
+					{% endfor %}
+			{% else %}
+				{{ form.email(class="user-form-input") }}
+			{% endif %}
+
+			{{ form.password.label(class="user-form-label") }}
+			{% if form.password.errors %}
+				{{ form.password(class=user-form-input) }}
+					{% for error in form.password.errors %}
+						<span>{{ error }}</span>
+					{% endfor %}
+			{% else %}
+				{{ form.password(class="user-form-input") }}
+			{% endif %}
+
+			<div>
+				{{ form.submit(class="user-form-submit inline-block") }}
+				
+				{{ form.remember(class="user-form-checkbox") }}
+				{{ form.remember.label () }}
+				</div>
+
+			</fieldset>
+		</form>
+<!------------------------------------------->
+<br> Or, 
+	<a href="{{ url_for('registrationPage') }}"
+		class="suggest-link">
+		register</a>!<br>
+	<!-- need to add password reset -->
+	<small><a href="">
+		Forgot password?</a>
+		</small>
+<!------------------------------------------->
+	</div> <!-- END FORM -->
+<!------------------------------------------->
+</div> <!-- END CONTENT-->
+<!------------------------------------------->
+{% endblock content %}

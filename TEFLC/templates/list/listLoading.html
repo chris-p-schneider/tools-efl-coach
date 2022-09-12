@@ -1,0 +1,104 @@
+{% extends "layout.html" %}
+{% block content %}
+<!------------------------------------------->
+<!-- FLASK CSS VALUES-->
+<style>
+	.loading-bar-progress {
+	    width: {{  progress }}%; 
+	    {% if progress < 100 %}
+		border-radius: 15px 0px 0px 15px;
+	    {% else %}
+		border-radius: 15px 15px 15px 15px;
+	    {% endif %}
+</style>
+
+<!------------------------------------------->
+<!-- JS TO HANDLE FLASK DATA -->
+<script>
+	if(typeof(EventSource) !== "undefined") {
+		var source = new EventSource("/create-list");
+		source.onmessage = function(event) {
+			document.getElementById("result").innerHTML += event.data + "<br>";
+			};
+		} else {
+			document.getElementById("result").innerHTML = "Sorry, your browser does not support server-sent events...";
+		}
+</script>
+
+
+<!------------------------------------------->
+<div class="content spacer no-select"
+	style="position: relative;">
+<!------------------------------------------->
+<!-- LOADING HEAD -->
+<div class="loading-head">
+	<h1>Getting Info for <span>{% if word %}{{ word }}{% else %}Error{% endif %}</span></h1>
+	</div>
+<!------------------------------------------->
+<!-- LOADING BAR -->
+<div class="loading-bar-container">
+	<div class="loading-bar-background">
+		&nbsp;
+		</div>
+	<div class="loading-bar-progress">
+		&nbsp;
+		</div>
+	<div class="loading-bar-percentage">
+		{{ progress }}%
+		</div>
+	</div> <!-- END LOADING BAR -->
+	<p>
+		Estimated time remaining: 
+		<span>{{ (seconds / 60)|int }}:{{ '%02d' % (seconds % 60) }}</span>
+		<!-- Format time variable in seconds -->
+		</p><br><hr>
+
+<!------------------------------------------->
+<!-- TESTS -->
+<!------------------------------------------->
+<hr><hr>
+<h1>TESTS</h1>
+<hr><hr>
+
+<p id="result">
+	
+</p>
+<hr><hr>
+
+<hr><hr>
+
+<!------------------------------------------->
+<div class="how-it-works">
+<h2>How does it work?</h2>
+<ol class="top10 bottom0">
+	<li>Your words are checked against our database. 
+		I've added all the Yola JS vocabulary 
+		and a number of common English words already!</li>
+	<li>If your word is new, the info is collected now. 
+		The more new words, the longer this will take. 
+		It can take 15-45 seconds per word, 
+		depending on how common the word is.</li>
+	<li>You'll have to verify some of the info next 
+		to use the new word.</li>
+	<dt><span>Basic Verification (Required)</span>: 
+			the word type, definition, and image.</dt>
+	<dt><span>Full Verification (Optional, Required for certain apps)</span>: 
+			Basic + syllables, sentence, 
+			related words, synonyms, antonyms, 
+			and rhymes.</dt>
+	<dt><span>How to Verify?</span> 
+			Simply click the <span>❎</span> 
+			icon to indicate the info is correct, 
+			click on an option, 
+			or type the correct info. 
+			Then, hit "Submit Verification"! </dt>
+	<li>Future users can use your verified words!</li>
+	<li class="bottom0">As the database grows, 
+		fewer words will need added / 
+		verified and everything will be faster!</li>
+		</ol>
+	</div> <!-- END HOW IT WORKS -->
+<!------------------------------------------->
+</div> <!-- END CONTENT -->
+<!------------------------------------------->
+{% endblock content %}

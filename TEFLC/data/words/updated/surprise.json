@@ -1,0 +1,65 @@
+{
+    "word": "surprise",
+    "wordV": 2,
+    "ipa": "/sə(r)ˈpraɪz/",
+    "audio": "https://lex-audio.useremarkable.com/mp3/surprise_us_1.mp3",
+    "type": "noun",
+    "typeV": 9,
+    "definition": "an unexpected event, piece of information, gift, etc.",
+    "definitionV": 9,
+    "images": [
+        "https://images.unsplash.com/photo-1485546246426-74dc88dec4d9?ixlib=rb-1.2.1",
+        "https://live.staticflickr.com/5209/5333260849_d8c52df551_b.jpg"
+    ],
+    "imagesV": 9,
+    "imageSelected": "https://images.unsplash.com/photo-1485546246426-74dc88dec4d9?ixlib=rb-1.2.1",
+    "syllables": 2,
+    "syllablesV": 8,
+    "sentence": "To our great surprise, he won the prize.",
+    "sentenceV": 8,
+    "related": [
+        "super-surprise",
+        "surprised",
+        "surprisedly",
+        "surprisement",
+        "surpriser",
+        "surprising",
+        "surprisingly",
+        "unsurprised",
+        "unsurprising",
+        "unsurprisingly"
+    ],
+    "relatedV": 8,
+    "synonyms": [
+        "amazement",
+        "astonishment",
+        "awe",
+        "bewilderment",
+        "curiosity",
+        "jolt",
+        "miracle",
+        "revelation"
+    ],
+    "synonymsV": 8,
+    "antonyms": [
+        "calmness",
+        "composure",
+        "coolness",
+        "expectation",
+        "indifference",
+        "prediction"
+    ],
+    "antonymsV": 8,
+    "rhymes": [
+        "advise",
+        "arise",
+        "comprise",
+        "demise",
+        "devise",
+        "sir lies",
+        "surmise",
+        "unwise",
+        "your eyes"
+    ],
+    "rhymesV": 8
+}

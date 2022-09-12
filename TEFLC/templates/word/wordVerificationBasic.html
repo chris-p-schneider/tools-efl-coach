@@ -1,0 +1,359 @@
+{% extends "layout.html" %}
+{% block content %}
+<!------------------------------------------->
+<div class="content spacer">
+<!-- VERIFICATION HEADER -->
+<div class="word-verification-head no-select">
+	<h1 class="word-verification-title">
+		Word Verification: 
+			<span>Basic</span></h1>
+
+	<!-- WORD STATUS -->		
+	<div class="word-status" style="float:right;">
+	{% if word.wordInfo["wordV"] == 0 %}
+		<p class="word-status-unverfied">
+			<span>Please verify:</span> 
+			<a href="{{ url_for('basicWordVerificationPage', wordId=wordId) }}">
+				Basic</a> or 
+			<a href="{{ url_for('fullWordVerificationPage', wordId=wordId) }}">
+				Full</a></p>
+
+	{% elif word.wordInfo["wordV"] == 1 %}
+		<p class="word-status-unverfied">
+		<span>Please verify:</span> 
+		<a href="{{ url_for('fullWordVerificationPage', wordId=wordId) }}">
+			Full info</a></p>
+
+	{% elif word.wordInfo["wordV"] == 2 %}
+		<p class="word-status-verfied">
+			Word verified.</p>
+			<!-- Add new type / clone option -->
+
+	{% else %}
+		<p>Error somehow.</p>
+
+	{% endif %}
+	</div> <!-- END WORD STATUS -->
+	<br><p class="word-verification-instructions">
+		Read & edit or click each icon 
+		[<img src="{{ url_for('static', filename='/img/word/boolFalse.png') }}"
+			style="width: 16px; height: 16px;">
+		➞
+		<img src="{{ url_for('static', filename='/img/word/boolTrue.png') }}"
+			style="width: 16px; height: 16px;">] to verify.</p>
+</div> <!-- END VERIFICATION HEADER -->
+<hr>
+<!------------------------------------------->
+	<!-- WORD TITLE -->
+	{% if word %}
+		<a href="{{ url_for('wordPage', wordId=wordId) }}">
+		<h1 class="word-title no-select">
+		{{ word.word }}</h1></a>
+	{% else %}
+		<h1 class="title no-select">
+		Word Not Found!</h1>
+	{% endif %}
+<!------------------------------------------->
+<!-- BASIC VERIFICATION -->
+<!------------------------------------------->
+<form method="POST" action="" 
+	id="wordVerificationBasic">
+	{{ form.hidden_tag() }}
+<!-- TYPE -->
+<h2 class="no-select">
+	<img src="{{ url_for('static', filename='/img/word/boolFalse.png') }}" 
+		id="word-type-bool-icon"
+		style="cursor: pointer;"
+		onclick="wordTypeVerified(); 
+			wordVerifiedBasic()">
+	 Type</h2>
+
+	{{ form.wordType(id="word-verification-type",
+		class="word-verification-dropdown",
+		onchange="wordTypeVerified(); 
+				wordVerifiedBasic()",
+		) }}
+
+<br><hr>
+<!------------------------------------------->
+<!-- DEFINITION -->
+<h2 class="no-select">
+	<img src="{{ url_for('static', filename='/img/word/boolFalse.png') }}" 
+		id="word-definition-bool-icon"
+		style="cursor: pointer;"
+		onclick="wordDefinitionVerified(); 
+			wordVerifiedBasic()">
+	 Definition</h2>
+	{{ form.wordDefinition(class="word-verification-textarea", 
+		oninput="wordDefinitionVerified(); wordVerifiedBasic()" )}}
+	<br>
+
+<!------------------------------------------->
+<!-- IMAGE -->
+<h2 class="no-select">
+	<img src="{{ url_for('static', filename='/img/word/boolFalse.png') }}"
+		id="word-image-bool-icon"
+		style="cursor: not-allowed;">
+	 Image</h2>
+<p class="bottom10 no-select">
+	Select the best suggested image. Tap [<b>&times;</b>] to remove irrelevant images.</p>
+<div class="align-center">
+<!-- onhover: show image popup -->
+{% if word.wordInfo["images"] is string == false %} <!-- list -->
+	{% for image in word.wordInfo["images"] %}
+		<div class="word-image-unverified-container">
+		{% if image == word.wordInfo["imageSelected"] %}
+			<img id="initial-selected-image"
+				class="word-image-unverified" 
+				src="{{ image }}"
+				onclick="wordImageSelect( {{ loop.index - 1 }} )"
+				style="border: 5px solid hsl(0, 50%, 67%);">
+		{% else %}
+			<img class="word-image-unverified" 
+				src="{{ image }}"
+				onclick="wordImageSelect( {{ loop.index - 1 }} )"
+				style="border: 5px solid hsl(0, 50%, 67%);">
+		{% endif %}
+		<div class="word-image-unverified-remove-container no-select">
+			<span class="word-image-unverified-remove-button"
+				onclick="markForRemoval( {{ loop.index - 1 }} )">
+				&times;</span>
+				</div>
+			</div>
+	{% endfor %}
+{% else %} <!-- single image -->
+	<div class="word-image-unverified-container">
+	{% if word.wordInfo['images'] == word.wordInfo["imageSelected"] %}
+		<img id="initial-selected-image"
+			class="word-image-unverified" 
+			src="{{ word.wordInfo['images'] }}"
+			onclick="wordImageSelect(0)"
+			style="border: 5px solid hsl(0, 50%, 67%);">
+	{% else %}
+		<img class="word-image-unverified" 
+			src="{{ word.wordInfo['images'] }}"
+			onclick="wordImageSelect(0)"
+			style="border: 5px solid hsl(0, 50%, 67%);">
+	{% endif %}
+	<div class="word-image-unverified-remove-container no-select">
+		<span class="word-image-unverified-remove-button"
+			onclick="markForRemoval(0)">
+			&times;</span>
+			</div>
+		</div>
+{% endif %}
+</div> <!-- END IMAGES DIV -->
+
+<!-- ADD THESE FEATURES WAY LATER -->
+<div class="align-center hidden">
+	<p class="list-button no-select"
+		style="width: 20%; cursor: not-allowed;">
+		Load More...</p>
+		<!-- Add function for getImgs() -->
+	<p class="list-button no-select"
+		style="width: 20%; cursor: not-allowed;">
+		Add URL 🔗</p>
+	<p class="list-button no-select"
+		style="width: 20%;"
+		id="word-verification-image-upload-button" 
+		onclick="wordVerificationImageUpload(); wordVerifiedBasic()">
+		Upload File 📁</p>
+		{{ form.wordImageUpload(class="hidden") }}
+	</div>
+<!-- IMAGE LIST -->
+{% for image in form.wordImages %}
+	{{ image(value=word.wordInfo['images'][loop.index-1],
+			class="hidden") }}
+	{# Name & Id == wordImages-image4 #}
+{% endfor %}
+<br><hr>
+<!-- BEST IMG URL -->
+{{ form.wordImageSelected(id = "word-verification-image-selected-url",
+	class = "hidden") }}
+<!------------------------------------------->
+<!-- SUBMIT BUTTON -->
+{{ form.submit(class="verification-button no-select tint-red",
+			style="cursor: not-allowed;") }}
+<!------------------------------------------->
+</form>
+</div> <!-- END CONTENT -->
+<!------------------------------------------->
+<!-- JAVASCRIPT -->
+<script type="text/javascript">
+
+	// INSERT DEFAULT TEXT
+	document.getElementById("word-verification-definition").innerText="{{ word.wordInfo['definition'] }}";
+
+	// INSERT DEFAULT TYPE
+	let dropdown = document.getElementById("word-verification-type")
+	for (i = 0; i < dropdown.length; i++) {
+		if (dropdown[i].text == "{{ word.wordInfo['type'] }}" ) {
+			dropdown[i].selected = true;
+		}
+	}
+
+	//VARIABLES
+	let wordTypeBool = false,
+		wordDefinitionBool = false, 
+		wordImageBool = false,
+		wordTypeBoolIcon = document.getElementById("word-type-bool-icon"),
+		wordDefinitionBoolIcon = document.getElementById("word-definition-bool-icon"),
+		wordImageBoolIcon = document.getElementById("word-image-bool-icon"),
+		wordImagesUnverified = document.getElementsByClassName("word-image-unverified"),
+		removalButtons = document.getElementsByClassName("word-image-unverified-remove-button"),
+		wordImageSelected = false,
+		bestImage = "",
+		wordImageSelectedUrl = document.getElementById("word-verification-image-selected-url"),
+		wordVerifiedBasicBool = false,
+		submitButton = document.getElementById("word-verification-submit-button");
+
+	//TYPE BOOL
+	function wordTypeVerified() {
+	    wordTypeBool = true;
+	    if (wordTypeBool == false) {
+	        wordTypeBoolIcon.src = "{{ url_for('static', filename='/img/word/boolFalse.png') }}";
+	    } else {
+	        wordTypeBoolIcon.src = "{{ url_for('static', filename='/img/word/boolTrue.png') }}";
+	    }
+	}
+
+	//DEFINITION BOOL
+	function wordDefinitionVerified() {
+	    wordDefinitionBool = true;
+	    if (wordDefinitionBool == false) {
+	        wordDefinitionBoolIcon.src = "{{ url_for('static', filename='/img/word/boolFalse.png') }}";
+	    } else {
+	        wordDefinitionBoolIcon.src = "{{ url_for('static', filename='/img/word/boolTrue.png') }}";
+	    }
+	}
+
+	// ALL VERIFIED
+	function wordVerifiedBasic() {
+	    if (wordTypeBool == true && wordDefinitionBool == true && wordImageBool == true) {
+	        wordVerifiedBasicBool = true;
+	        submitButton.className = "verification-button no-select tint-green";
+	        submitButton.style.cssText = "cursor: pointer; pointer-events: auto";
+	    } else {
+	        wordVerifiedBasicBool = false;
+	        submitButton.className = "verification-button no-select tint-red";
+	        submitButton.style.cssText = "cursor: not-allowed; pointer-events: none";
+	    }
+	}
+
+	// IMAGE CLASS
+	class Image {
+		constructor(number) {
+			this.number = number;
+			this.image = wordImagesUnverified[number];
+			this.span = removalButtons[number];
+			// 0: remove; 1: initial; 2: selected
+			this.state = 1;
+		}
+	}
+
+	// ALTER IMAGE STATE
+	function imageState(imageObject, prevState) {
+        let imageRemoved = document.getElementById("wordImages-image" + String(Number(imageObject.number)+1));
+		if (imageObject.state == 0) {
+        	imageObject.image.className += " image-to-remove";
+        	imageObject.span.style = "color: hsl(0, 50%, 50%);"
+        	imageRemoved.value = "";
+			if (wordImageSelectedUrl.value == imageObject.image.src) {
+				wordImageSelectedUrl.value = "";
+				wordImageBool = false;
+			}
+		} else if (imageObject.state == 1) {
+			if (prevState == 2) {
+				imageObject.image.style = "border: 5px solid hsl(0, 0%, 100%)";
+				imageObject.span.className = imageObject.span.className.replace( /(?:^|\s)hidden(?!\S)/g , '' );
+				wordImageSelectedUrl.value = "";
+				wordImageBool = false;
+			} else if (prevState == 1) {
+				imageObject.image.style = "border: 5px solid hsl(0, 0%, 100%)";
+			} else if (prevState == 0) {
+				imageObject.image.className = imageObject.image.className.replace( /(?:^|\s)image-to-remove(?!\S)/g , '' );
+        		imageObject.span.style = "color: hsl(0, 50%, 100%);"
+				imageRemoved.value = imageObject.image.src;
+				if (wordImageSelectedUrl.value == imageObject.image.src) {
+					wordImageSelectedUrl.value = "";
+					wordImageBool = false;
+				}
+			}
+		} else { // 2
+			imageObject.image.style = "border: 5px solid hsl(120, 67%, 67%)";
+			imageObject.span.className += " hidden";
+			wordImageSelectedUrl.value = imageObject.image.src;
+			wordImageBool = true;
+		}
+		if (wordImageBool == false) {
+			wordImageBoolIcon.src = "{{ url_for('static', filename='/img/word/boolFalse.png') }}";
+		} else {
+			wordImageBoolIcon.src = "{{ url_for('static', filename='/img/word/boolTrue.png') }}";
+		}
+		wordVerifiedBasic();
+	}
+
+	// CREATE IMAGES ARRAY
+	let imagesArray = [];
+	for (i in wordImagesUnverified) {
+		var image = new Image(i),
+			imageJSON = {
+			"name"   : "image" + String(Number(image.number)+1),
+			"number" : image.number,
+			"image"  : image.image,
+			"span"   : image.span
+		};
+		// alert(image.image.id);
+		if (image.image.id == "initial-selected-image") {
+			imageJSON.state = 2;
+			imageState(imageJSON, 1); // initial formatting
+		} else {
+			imageJSON.state = image.state;
+		}
+		imagesArray.push(imageJSON);
+	}
+
+	// CHANGE OTHER SELECTED TO INITAL
+	function resetStatus(number) {
+		for (i in wordImagesUnverified) {
+			if (imagesArray[i] != imagesArray[number]) {
+				if (imagesArray[i].state == 2) {
+					imagesArray[i].state = 1;
+					imageState(imagesArray[i], 2);
+				} else if (imagesArray[i].state == 1) {
+					imageState(imagesArray[i], 1);
+				}
+			}
+			wordImageSelectedUrl.value = imagesArray[number].image.src;
+			wordImageBool = true;
+			wordImageBoolIcon.src = "{{ url_for('static', filename='/img/word/boolTrue.png') }}";
+			wordVerifiedBasic();
+		}
+	}
+
+	// WORD IMAGE SELECT
+	function wordImageSelect(number) {
+		if (imagesArray[number].state == 1) {
+			imagesArray[number].state = 2;
+			imageState(imagesArray[number], 1);
+			resetStatus(number);
+		} else if (imagesArray[number].state == 2) {
+			imagesArray[number].state = 1;
+			imageState(imagesArray[number], 2);
+		}
+	}
+
+	// MARK FOR REMOVAL
+	function markForRemoval(number) {
+		if (imagesArray[number].state == 0) {
+			imagesArray[number].state = 1;
+			imageState(imagesArray[number], 0);
+		} else if (imagesArray[number].state == 1) {
+			imagesArray[number].state = 0;
+			imageState(imagesArray[number], 1);
+		}
+	}
+
+	</script>
+<!------------------------------------------->
+{% endblock content %}

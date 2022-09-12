@@ -1,0 +1,169 @@
+{% extends "layout.html" %}
+{% block content %}
+<!-------------------------------------------->
+<style>
+	div {
+		display: block;
+		text-align: center;
+		background-color: white;
+		margin: 0px
+		padding: 10px;
+	}
+	table {
+		width: 100%;
+		border: 0px solid black;
+		border-spacing: 20px;
+		table-layout: fixed;
+		padding: 0px;
+		margin: 0px;
+	}
+	tr, td {
+		padding: 3vh;
+		border: 0px solid white;
+		border-radius: 11px;
+		text-align: center;
+	}
+	td {
+		font-family: Roboto;
+		font-weight: 900;
+		font-size: 6vw;
+		color: white;
+		text-shadow: 1px 1px 5px black;
+		background-color: #ffa630;
+		box-shadow: 0px 0px 5px #999999;
+		-webkit-transition: box-shadow .13s ease-in-out;
+		transition: box-shadow .13s ease-in-out;
+		-webkit-transition: background-color .33s ease-in-out;
+		transition: background-color .33s ease-in-out;
+	}
+	td#status {
+		background-color: #0c4b9e;
+	}
+	td#status:hover {
+		box-shadow: 1px 1px 7px black;
+	}
+    #1337hax {
+        max-height: 0px;
+        display: none;
+    }
+</style>
+<!-------------------------------------------->
+<div id="lotto" class="no-select">
+<table id="lottoTable">
+	<tr>
+		<td class="colL"></td>
+		<td class="colM"></td>
+		<td class="colR"></td>
+	</tr>
+	<tr>
+		<td class="colL"></td>
+		<td class="colM"></td>
+		<td class="colR"></td>
+	</tr>
+	<tr>
+		<td class="colL"></td>
+		<td class="colM"></td>
+		<td class="colR"></td>
+	</tr>
+	<tr>
+		<td id="status" colspan="3" onclick="playGame()">
+			Write three words.
+		</td>
+	</tr>
+</table>
+<!-------------------------------------------->
+<script>
+function shuffle(array) {
+	var currentIndex = array.length, temporaryValue, randomIndex;
+	// While there remain elements to shuffle...
+	while (0 !== currentIndex) {
+	// Pick a remaining element...
+		randomIndex = Math.floor(Math.random() * currentIndex);
+		currentIndex -= 1;
+
+	// And swap it with the current element.
+		temporaryValue = array[currentIndex];
+		array[currentIndex] = array[randomIndex];
+		array[randomIndex] = temporaryValue;
+	}
+	return array;
+}
+function wordPlacement() {
+	var vocab = [
+	{% for word in lottoList %}
+		{% if loop.index != 9 %}
+			"{{ word }}",
+		{% else %}
+			"{{ word }}"];
+		{% endif %}
+	{% endfor %}
+
+	var td = document.getElementsByTagName("td");
+	for (i = 0; i < 9; i++) {
+		var r = Math.floor((Math.random() * vocab.length) + 1);
+		var r = r-1;
+		td[i].innerHTML = vocab[r];
+		vocab.splice(r,1);
+	}
+}
+function removeSix() {
+	var td = document.getElementsByTagName("td");
+	var words = [0,1,2,3,4,5,6,7,8]
+	for (i = 0; i < 6; i++) {
+		shuffle(words);
+		td[words[0]].innerHTML = " ";
+		td[words[0]].style="background-color: white;";
+		words.splice(0,1);
+	}	
+}
+function restoreSix() {
+	var td = document.getElementsByTagName("td");
+	for (i = 0; i < 9; i++) {
+		td[i].style="background-color: #ffa630;";
+	}
+}
+var gameCounter = 0;
+function playGame() {
+	gameCounter ++;
+	function getReady() {
+		document.getElementById("status").innerText = "Are you ready?";
+	}
+	if (gameCounter == 1) {
+		window.setTimeout (getReady, 500);
+	}
+	function sixWords() {
+		document.getElementById("status").innerText = "Six words are removed.";
+	}
+	if (gameCounter == 2) {
+		window.setTimeout (sixWords, 500);
+	}
+	function getPoints() {
+		document.getElementById("status").innerText = "Get points for matching words!";
+	}
+	if (gameCounter == 3) {
+		removeSix();
+		window.setTimeout (getPoints, 100);
+	}
+	function playAgain() {
+		document.getElementById("status").innerText = "Play again?";	
+	}
+	if (gameCounter == 4) {
+		window.setTimeout (playAgain, 500);
+	}
+	function initialText() {
+		document.getElementById("status").innerText = "Write three words.";
+	}
+	if (gameCounter == 5) {
+		restoreSix();
+		wordPlacement();
+		window.setTimeout (initialText, 100);
+		gameCounter = 0;
+	}
+}
+
+document.body.onload = wordPlacement();
+document.body.onload = lottoSize();
+</script>
+</div>
+<!-------------------------------------------->
+{% endblock content %}

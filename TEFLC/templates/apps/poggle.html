@@ -1,0 +1,326 @@
+{% extends "layout.html" %}
+{% block content %}
+<!------------------------------------------->
+<!-- POGGLE -->
+<!------------------------------------------->
+<!-- CSS -->
+<style type="text/css">
+	@media only screen and (orientation: portrait) {
+		#poggle-controls {
+			display: block;
+			padding: 10px 0px 10px 7vw;
+			margin: 0px 0px 10px 0px;
+		}
+		#poggle-table {
+			font-size: 12vw;
+		}
+		#poggle-timer, #new-board {
+			font-size: 13vw;
+			margin-right: 3vw;
+		}
+		.timer-control {
+			width: 15vw;
+			height: 15vw;
+		}
+		#poggle-table td {
+			min-width: 15vw;
+		}
+	}
+	@media only screen and (orientation: landscape) {
+		#poggle-controls {
+			display: inline-block;
+			margin: 0px 0px 0px 5vh;
+		}
+		#poggle-table {
+			font-size: 12vh;
+		}
+		#poggle-timer, #new-board {
+			font-size: 15vh;
+			display: block !important;
+		}
+		.timer-control {
+			margin-left: -5px;
+			width: 15vh;
+			height: 15vh;
+		}
+		#poggle-table td {
+			min-width: 15vh;
+		}
+	}
+
+	#poggle {
+		width: 100%;
+		height: 100%;
+		display: block;
+		background-color: white;
+		padding: 5px 0px 0px 0px;
+	}
+	#poggle-game {
+		display: inline-block;
+		background-color: white;
+	}
+	#poggle-controls {
+		vertical-align: top;
+		text-align: left;
+		background-color: white;
+	}
+	#poggle-table {
+		width: 100%;
+		margin: 0px 0px 10px 0px;
+		font-weight: 600;
+
+		padding: 5px;
+		border: 3px solid hsl(204, 85%, 55%);
+		border-radius: 33px;
+		border-spacing: 10px;
+		box-shadow: inset 0px 0px 9px hsl(204, 88%, 34%), -3px 3px 9px hsl(0, 0%, 34%);
+		background-color: hsl(204, 90%, 50%);
+	}
+	#poggle-table td {
+		padding: 10px;
+		border-radius: 21px;
+		box-shadow: 0px 0px 7px black, inset 0px 0px 7px hsla(0, 0%, 34%, 1);
+		background-color: white;
+	}
+	#poggle-timer {
+		/* moved to timer class */
+	}
+	.timer-control {
+		vertical-align: top;
+	}
+	.timer-control:hover {
+		filter: drop-shadow(0px 0px 5px hsl(203, 50%, 50%));
+	}
+	#new-board {
+		display: inline-block;
+		background-color: white;
+		transition: text-shadow .2s ease-in-out;
+	}
+	#new-board:hover {
+		text-shadow: 0px 0px 9px hsl(204, 90%, 65%);
+	}
+</style>
+<!------------------------------------------->
+<div id="poggle" class="no-select">
+
+<div id="poggle-game">
+	<table id="poggle-table">
+		<tr>
+			<td class="letter">P</td>
+			<td class="letter"></td>
+			<td class="letter"></td>
+			<td class="letter"></td>
+		</tr>
+		<tr>
+			<td class="letter">O</td>
+			<td class="letter">G</td>
+			<td class="letter"></td>
+			<td class="letter"></td>
+		</tr>
+		<tr>
+			<td class="letter"></td>
+			<td class="letter">G</td>
+			<td class="letter">L</td>
+			<td class="letter"></td>
+		</tr>
+		<tr>
+			<td class="letter"></td>
+			<td class="letter"></td>
+			<td class="letter"></td>
+			<td class="letter">E</td>
+		</tr>
+	</table>
+</div>
+<!------------------------------------------->
+<div id="poggle-controls">
+	<p id="poggle-timer" class="timer">
+		3:00</p>
+
+	<p id="new-board" class=""
+		onclick="newGame()">
+		New</p>
+	<img src="{{ url_for('static', filename='/img/apps/controls/play.png') }}"
+		id="poggle-play-button" alt="▶" 
+		class="timer-control hidden">
+	<img src="{{ url_for('static', filename='/img/apps/controls/pause.png') }}"
+		id="poggle-pause-button" alt="⏸" 
+		onclick="pauseClock()" class="timer-control hidden">
+	<img src="{{ url_for('static', filename='/img/apps/controls/stop.png') }}"
+		id="poggle-stop-button" alt="⏹" 
+		onclick="newGame()" class="timer-control hidden">
+	</div>
+
+
+</div> <!-- END POGGLE -->
+<!------------------------------------------->
+<!-- JAVASCRIPT -->
+<script type="text/javascript">
+
+// VARIABLES
+let letters = document.getElementsByClassName("letter"),
+	timer = document.getElementById("poggle-timer"),
+	newButton = document.getElementById("new-board"),
+	playButton = document.getElementById("poggle-play-button"),
+	pauseButton = document.getElementById("poggle-pause-button"),
+	stopButton = document.getElementById("poggle-stop-button"),
+	gameActive = false,
+	gamePaused = false,
+	count = 7;
+
+// INITIAL MOUSE EFFECTS
+pauseButton.onmouseover = function(){
+	pauseButton.src = "{{ url_for('static', filename='/img/apps/controls/pause-active.png') }}";
+}
+pauseButton.onmouseout = function(){
+	pauseButton.src = "{{ url_for('static', filename='/img/apps/controls/pause.png') }}";
+}
+stopButton.onmouseover = function(){
+	stopButton.src = "{{ url_for('static', filename='/img/apps/controls/stop-active.png') }}";
+}
+stopButton.onmouseout = function(){
+	stopButton.src = "{{ url_for('static', filename='/img/apps/controls/stop.png') }}";
+}
+
+
+// CONSTANTS
+const poggleLetters = {
+	1: "AAEEGN",
+	2: "ABBJOO",
+	3: "ACHOPS",
+	4: "AFFKPS",
+	5: "AOOTTW",
+	6: "CIMOTU",
+	7: "DEILRX",
+	8: "DELRVY",
+	9: "DISTTY",
+	10: "EEGHNW",
+	11: "EEINSU",
+	12: "EHRTVW",
+	13: "EIOSST",
+	14: "ELRTTY",
+	15: "HIMNUQ", // u
+	16: "HLNNRZ"
+}
+
+// COUNTDOWN FUNCTION
+function countDown() {
+	if (gameActive === true) {
+		let remaining = 179 - count,
+			minutes = Math.floor(remaining / 60),
+			seconds = (remaining % 60).toString();
+
+		paddedSeconds = seconds.padStart(2,0);
+		timer.innerHTML = minutes + ":" + paddedSeconds;
+		count++;
+
+		if (count == 180) {
+			clearInterval(counter);
+			newButton.innerHTML = "Again?";	
+		}
+	}
+}
+
+// INITIALIZE TIMER INTERVAL
+let counter = setInterval(function() {
+	countDown();
+}, 1000);
+
+// PAUSE CLOCK
+function pauseClock() {
+	if (gameActive === true) {
+		pauseButton.src = "{{ url_for('static', filename='/img/apps/controls/pause-active.png') }}";
+		gameActive = false;
+		gamePaused = true;
+		clearInterval(counter);
+		pauseButton.onmouseover = function(){
+			pauseButton.src = "{{ url_for('static', filename='/img/apps/controls/play-active.png') }}";
+		}
+		pauseButton.onmouseout = function(){
+			pauseButton.src = "{{ url_for('static', filename='/img/apps/controls/pause-active.png') }}";
+		}
+		
+	} else {
+		pauseButton.onmouseout = function(){
+			pauseButton.src = "{{ url_for('static', filename='/img/apps/controls/pause.png') }}";
+		}
+		pauseButton.onmouseover = function(){
+			pauseButton.src = "{{ url_for('static', filename='/img/apps/controls/pause-active.png') }}";
+		}
+		pauseButton.src = "{{ url_for('static', filename='/img/apps/controls/pause.png') }}";
+		gameActive = true;
+		gamePaused = false;
+		counter = setInterval(function() {
+			countDown();
+		}, 1000);
+	}
+}
+
+// Fisher–Yates Shuffle
+// From Mike Bostock
+function shuffle(array) {
+	var m = array.length, t, i;
+
+	// While there remain elements to shuffle…
+	while (m) {
+
+		// Pick a remaining element…
+		i = Math.floor(Math.random() * m--);
+
+		// And swap it with the current element.
+		t = array[m];
+		array[m] = array[i];
+		array[i] = t;
+	}
+
+	return array;
+}
+
+// NEW BOARD
+let positions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
+
+function newBoard() {
+	newPositions = shuffle(positions);
+	for (var i = 0; i < letters.length; i++) {
+		let randomNumber = Math.floor((Math.random() * 6)),
+			newLetter = poggleLetters[newPositions[i]][randomNumber];
+		if (newLetter == 'Q') {
+			newLetter = "Qu";
+		}
+		letters[i].innerHTML = newLetter;
+	}
+}
+
+// RE-ROLL LETTERS
+function newGame() {
+	if (gameActive === false && gamePaused === false) {
+		gameActive = true;
+		timer.style = "color: black";
+		newButton.style = "color: hsl(0, 0%, 50%)";
+		newButton.innerHTML = "";
+		pauseButton.className = "timer-control";
+		stopButton.className = "timer-control";
+		newBoard();
+		if (count == 7) {  // initial
+			count = 0;
+		} else { // restart interval
+			counter = setInterval(function() {
+				countDown();
+			}, 1000);
+		}
+	} else {
+		clearInterval(counter);
+		count = 0;
+		gameActive = false;
+		gamePaused = false;
+		timer.innerHTML = "3:00";
+		timer.style = "color: hsl(0, 0%, 50%)";
+		newButton.style = "color: black";
+		newButton.innerHTML = "New";
+		pauseButton.className = "timer-control hidden";
+		stopButton.className = "timer-control hidden";
+	}
+}
+
+</script>
+<!------------------------------------------->
+{% endblock content %}

@@ -1,0 +1,51 @@
+{
+    "word": "goodbye",
+    "wordV": 2,
+    "ipa": "/ɡʊdˈbaɪ/",
+    "audio": "https://lex-audio.useremarkable.com/mp3/goodbye_us_1.mp3",
+    "type": "exclamation",
+    "typeV": 2,
+    "definition": "a remark or gesture made when someone is leaving",
+    "definitionV": 2,
+    "images": [
+        "https://images.unsplash.com/photo-1539800355971-94e7e5307689?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D",
+        "https://live.staticflickr.com/8625/16485104310_f676dbce92_b.jpg"
+    ],
+    "imagesV": 2,
+    "imageSelected": "https://images.unsplash.com/photo-1539800355971-94e7e5307689?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D",
+    "syllables": 2,
+    "syllablesV": 1,
+    "sentence": "He waved and said goodbye.",
+    "sentenceV": 1,
+    "related": [
+        "goodbyes",
+        "goodnight"
+    ],
+    "relatedV": 1,
+    "synonyms": [
+        "Godspeed",
+        "adieu",
+        "adios",
+        "au revoir",
+        "bye-bye",
+        "cheerio",
+        "ciao",
+        "see you later",
+        "seeya",
+        "so long"
+    ],
+    "synonymsV": 1,
+    "antonyms": [
+        "greetings",
+        "hello"
+    ],
+    "antonymsV": 1,
+    "rhymes": [
+        "could lie",
+        "hood high",
+        "mood pie",
+        "should tie",
+        "would buy"
+    ],
+    "rhymesV": 1
+}

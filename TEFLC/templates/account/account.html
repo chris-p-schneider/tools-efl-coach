@@ -1,0 +1,117 @@
+{% extends "layout.html" %}
+{% block content %}
+<!------------------------------------------->
+<!-- USER LISTS -->
+<div class="account-content content spacer"
+	style="background-color: hsl(0, 0%, 97%) !important;">
+	<div class="l-col">
+		<a id="Account-Lists">
+		<h1 class="title no-select">
+	    	{{ current_user.username }}'s Lists
+    		</h1></a>
+		</div>
+	<!-- New List Button -->
+	<div class="r-col align-right">
+    	<a href="{{ url_for('newListPage') }}">
+    		<p class="new-list-button tint-green no-select">
+    			New List
+    			</p></a>
+    	</div>
+<!------------------------------------------->
+	<!-- LISTS -->
+	{% if current_user.wordlists %}
+	    {% for list in current_user.wordlists|reverse %}
+	    	<a href="{{ url_for('listPage', listId=list.id) }}">
+	    	<p class="user-list-title">
+	    		{{ list.title }}
+	    		</p></a>
+	    		<br>
+	    	<!-- !:: add list word count (#) -->
+	    	{% if list.text|length > 200 %}
+	    		<p class="user-list-words">
+	    			{{ list.text[:200] + "..." }}
+	    			</p>
+	    	{% else %}
+	    		<p class="user-list-words">
+	    			{{ list.text }}
+	    			</p>
+	    	{% endif %}
+	    	<!-- !:: FORMAT TO UNIFORM DATA -->
+	    	<!-- spaced, cvs, linebreak, \n, etc. -->
+	    {% endfor %}
+
+	{% else %}
+	   	<p class="no-select">
+	   		Your wordlists will appear here!
+	   		</p>
+	
+	{% endif %}
+
+</div> <!-- END CONTENT: LISTS-->
+<!------------------------------------------->
+<div class="account-content content spacer"
+	style="background-color: hsl(0, 0%, 90%) !important;">
+<!------------------------------------------->
+	<!-- PROFILE INFO -->
+	<div class="l-col-30">
+		<img class="account-photo" 
+			src="{{ imageFile }}" 
+			onclick="uploadPic()">
+			<br>
+		<h2 class="account-name">
+			{{ current_user.username }}
+			</h2><br>
+		<p class="account-email">
+			{{ current_user.email }}
+			</p>
+
+	<!-- ACCOUNT INFO -->
+		<p class="account-type-free no-select">
+			Free Account</p>
+		<a href="{{ url_for('upgradePage') }}">
+			<p class="account-upgrade no-select">
+			Upgrade Account</p></a>
+
+	</div> <!-- END COL L -->
+<!------------------------------------------->
+	<!-- UPDATE INFO -->
+	<div class="r-col-70">
+		<form method="POST" action="" class="user-form no-select" enctype="multipart/form-data">
+		{{ form.hidden_tag() }}
+		<fieldset>
+			<legend class="user-form-legend">Update Info</legend>
+			{{ form.username.label(class="user-form-label") }}
+			{% if form.username.errors %}
+				{{ form.username(class="user-form-input") }}
+					{% for error in form.username.errors %}
+						<span>{{ error }}</span>
+					{% endfor %}
+			{% else %}
+				{{ form.username(class="user-form-input") }}
+			{% endif %}
+
+			{{ form.email.label(class="user-form-label") }}
+			{% if form.email.errors %}
+				{{ form.email(class="user-form-input") }}
+					{% for error in form.email.errors %}
+						<span>{{ error }}</span>
+					{% endfor %}
+			{% else %}
+				{{ form.email(class="user-form-input") }}
+			{% endif %}
+
+			{{ form.picture.label(class="user-form-label") }}
+			{{ form.picture(class="user-form-photo") }}
+			{% if form.picture.errors %}
+				{% for error in form.picture.errors %}
+					<span>{{ error }}</span><br>
+				{% endfor %}
+			{% endif %}
+
+		{{ form.submit(class="user-form-submit") }}
+		</fieldset>
+	</form>
+	</div> <!-- END COL R -->
+</div> <!-- END CONTENT: ACCOUNT INFO -->
+<!------------------------------------------->
+{% endblock content %}

@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+{% block content %}
+<!------------------------------------------->
+<div class="content spacer">
+	<form method="POST" action="" 
+		class="user-form no-select">
+		{{ form.hidden_tag() }}
+		<fieldset>
+			<legend class="user-form-legend">
+			{{ legend }}</legend>
+
+			{{ form.listTitle.label(class="user-form-label") }}
+			{% if form.listTitle.errors %}
+				{{ form.listTitle() }}
+					{% for error in form.listTitle.errors %}
+						<span>{{ error }}</span>
+					{% endfor %}
+			{% else %}
+				{{ form.listTitle(class="user-form-input") }}
+			{% endif %}
+<!------------------------------------------->
+			{{ form.text.label(class="user-form-label") }}
+			{% if form.text.errors %}
+				{{ form.text(class="user-form-input") }}
+					{% for error in form.text.errors %}
+						<span>{{ error }}</span>
+					{% endfor %}
+			{% else %}
+			<p class="status-para font16 no-select" 
+				onclick="clearAlert(this)" 
+				style="border-bottom: 1px solid hsl(0,0%,67%); padding-bottom: 5px;)">
+				These lists are CaSe sensitive. Capitalize proper nouns.
+				<br> Until I add this feature, use 
+				<a href="https://convertcase.net/" 
+					target="_blank" 
+					class="blue-font">
+					Convert Case</a> to change multiple to lowercase if needed.
+					</p>
+				<p class="status-para font16 no-select">
+					For full documentation of how word lists are formatted, 
+					<a href="{{ url_for('listInfoPage') }}" 
+						target="_blank"  
+						class="blue-font">read about it here</a>.
+						</p>
+				{{ form.text(class="user-form-input") }}
+			{% endif %}
+<!------------------------------------------->
+		{{ form.submit(class="user-form-submit tint-green") }}
+		</fieldset>
+	</form>
+<!------------------------------------------->
+<a href="{{ url_for('accountPage') + '#Account-Lists' }}">
+	<button class="user-form-button tint-none">
+		Back</button>
+	</a>
+</div>
+<!------------------------------------------->
+<!-- JS -->
+<script>
+	document.getElementById("list-form-textarea").placeholder = "Comma, separated, values, are, perfectly, fine, to, use! \n\n You    can    also    use    tabs (not spaces).\n\n Or \n use \n new \n lines! \n\n BUT DON'T USE MULTIPLE DELIMITERS!";
+	document.getElementById("list-form-textarea").style.minHeight = "30vh";
+</script>
+<!------------------------------------------->
+{% endblock content %}

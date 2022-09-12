@@ -1,0 +1,40 @@
+{
+    "word": "apple",
+    "wordV": 2,
+    "ipa": "/ˈæpəl/",
+    "audio": "https://lex-audio.useremarkable.com/mp3/apple_us_1.mp3",
+    "type": "noun",
+    "typeV": 2,
+    "definition": "a round fruit with red, yellow, or green skin and firm white flesh",
+    "definitionV": 2,
+    "images": [
+        "https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?ixlib=rb-1.2.1",
+        "https://live.staticflickr.com/1708/24591388896_bb7bec70c1_b.jpg",
+        "https://purepng.com/public/uploads/large/big-red-apple-xad.png"
+    ],
+    "imagesV": 2,
+    "imageSelected": "https://live.staticflickr.com/1708/24591388896_bb7bec70c1_b.jpg",
+    "syllables": 2,
+    "syllablesV": 1,
+    "sentence": "An apple a day keeps the doctor away.",
+    "sentenceV": 1,
+    "related": [
+        "apple orchard",
+        "apple picking ",
+        "apples",
+        "applet",
+        "appley",
+        "applish"
+    ],
+    "relatedV": 1,
+    "synonyms": [],
+    "synonymsV": 1,
+    "antonyms": [],
+    "antonymsV": 1,
+    "rhymes": [
+        "chapel",
+        "grapple",
+        "snapple"
+    ],
+    "rhymesV": 1
+}

@@ -1,0 +1,152 @@
+{% extends "layout.html" %}
+{% block content %}
+<!------------------------------------------->
+<div class="content spacer">
+	<!-- LIST TITLE -->
+	{% if wordList %}
+		<h1 class="title no-select">
+		{{ wordList.title }}</h1>
+
+	{% else %}
+		<h1 class="title no-select">
+		List Not Found!</h1>
+
+	{% endif %}
+
+<!------------------------------------------->
+	<!-- LIST ATTRIBUTION -->
+	<p class="author-name no-select">
+		By <span>{{ wordList.author.username }}
+			</span></p>
+		<img src="{{ url_for('static', filename='/img/profile-pics/' + wordList.author.imageFile) }}"
+			class="author-img no-select">
+
+<!------------------------------------------->
+	<!-- LIST TEXT -->
+	<div class="word-list-container">
+		<p class="user-list-words">
+			{% for word in wordList.wordIds %}
+			<a href="#{{ word.word }}">
+				{{ word.word }}</a>
+			{% endfor %}
+			</p></div>
+
+<!------------------------------------------->
+	<!-- AUTHOR OWN LIST -->
+	{% if wordList.author == current_user %}
+		<a href="{{ url_for('listEditPage', 
+			listId=wordList.id) }}">
+		<p class="list-button tint-blue">
+			Edit
+			</p></a>
+		<a href="{{ url_for('listConnectPage', listId=wordList.id) }}">
+		<p class="list-button tint-green">
+			Connect
+			</p></a>
+
+	<!-- BACK BUTTON -->
+		<a href="{{ url_for('accountPage') }}">
+		<button type="button" 
+			class="list-button">
+			Lists
+			</button></a>
+
+	<!-- DELETE CONFIRM BUTTON -->
+		<button type="button" 
+			class="list-button tint-red" 
+			onclick="confirmDelete()">
+			Delete?
+			</button>
+
+	<!-- DELETE LIST -->
+		<form action="{{ url_for('listDeletePage', 
+			listId=wordList.id) }}" method="POST"
+			class="inline-block hidden" 
+			id="delete-list-button">
+			<input type="submit" 
+				class="list-button test-red" 
+				name="Delete" 
+				value="Delete!">
+			</form>
+<!------------------------------------------->
+	<!-- NON-AUTHOR: CLONE LIST -->
+	{% else %}
+		<a href="">
+		<p class="list-button tint-blue">
+			Clone
+			</p></a>
+		<a href="">
+		<p class="list-button tint-green">
+			Connect
+			</p></a>
+	{% endif %}
+<br>
+<br>
+
+<!------------------------------------------->
+	<!-- LIST CONTENT -->
+	<div class="list-container">
+	{% for word in wordList.wordIds %}
+
+		<div class="list-word-container">
+			<div class="word-container-left">
+				<!-- WORD IMAGE -->
+				{% if word.wordInfo["imagesV"] == 0 %}
+					{% if word.wordInfo['images'][0] %}
+						<img src="{{ word.wordInfo['images'][0] }}" 
+							class="list-img"><br>
+					{% else %}
+						<img src="{{ url_for('static', filename='/img/word/missing-word.png') }}" 
+							class="list-img"><br>
+					{% endif %}
+				{% else %}
+					{% if word.wordInfo['imageSelected'] != "" %}
+						<img src="{{ word.wordInfo['imageSelected'] }}" 
+							class="list-img"><br>
+					{% else %}
+						<img src="{{ url_for('static', filename='/img/word/missing-word.png') }}" 
+							class="list-img"><br>
+					{% endif %}
+				{% endif %}
+				</div> <!-- END LEFT -->
+
+			<div class="word-container-right">
+				<!-- WORD BASIC INFO -->
+				<a id="{{ word.wordInfo['word'] }}"
+					class="word-link" 
+					href="{{ url_for('wordPage', wordId=word.id) }}">
+				<span class="font-weight-500 font24">
+					{{ word.wordInfo["word"] }}
+					</span></a> 
+				{% if word.wordInfo['wordV'] == 0 %}
+					<img src="{{ url_for('static', filename='/img/word/unverified.png') }}"
+							style="width: 20px; height: 20px;">
+				{% elif word.wordInfo['wordV'] == 1 %}
+					<img src="{{ url_for('static', filename='/img/word/verified-basic.png') }}"
+							style="width: 20px; height: 20px;">
+				{% elif word.wordInfo['wordV'] == 2 %}
+					<img src="{{ url_for('static', filename='/img/word/verified-full.png') }}"
+							style="width: 20px; height: 20px;">
+				{% endif %}
+
+					— 
+
+				<p class="inline-block font-italic bottom5">
+					{{ word.wordInfo["type"] }}
+					</p><br>
+				<p>
+					{{ word.wordInfo["definition"] }}
+					</p>
+				</div> <!-- END RIGHT -->
+		</div> <!-- END WORD CONTAINER -->
+		{% if word == wordIdInfo|list|last %}
+			{# intentionally blank #}
+		{% else %}
+			<div class="short-br20"></div>
+		{% endif %}
+
+	{% endfor %}
+	</div> <!-- END LIST CONTAINER -->
+
+</div>
+{% endblock content %}

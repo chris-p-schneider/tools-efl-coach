@@ -1,0 +1,36 @@
+{
+    "word": "mango",
+    "wordV": 2,
+    "ipa": "/ˈmæŋɡoʊ/",
+    "audio": "https://lex-audio.useremarkable.com/mp3/mango_us_1.mp3",
+    "type": "noun",
+    "typeV": 6,
+    "definition": "a juicy tropical fruit that has firm yellow and red skin and a hard seed at its center",
+    "definitionV": 6,
+    "images": [
+        "https://purepng.com/public/uploads/large/purepng.com-mangomangojuicy-stone-fruitindian-mangocommon-mango-1701527331974j7ih2.png"
+    ],
+    "imagesV": 6,
+    "imageSelected": "https://purepng.com/public/uploads/large/purepng.com-mangomangojuicy-stone-fruitindian-mangocommon-mango-1701527331974j7ih2.png",
+    "syllables": 2,
+    "syllablesV": 4,
+    "sentence": "Orange mangoes are sweet, but you can eat the sour green mango with salt!",
+    "sentenceV": 4,
+    "related": [
+        "mangoes",
+        "mangosteen"
+    ],
+    "relatedV": 4,
+    "synonyms": [],
+    "synonymsV": 4,
+    "antonyms": [],
+    "antonymsV": 4,
+    "rhymes": [
+        "Anglo",
+        "dango",
+        "fang grow",
+        "rambo",
+        "tango"
+    ],
+    "rhymesV": 4
+}

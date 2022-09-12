@@ -1,0 +1,153 @@
+{% extends "layout.html" %}
+{% block content %}
+<!------------------------------------------->
+<!-- 5 LETTER WORDS -->
+<!-- CSS -->
+<style type="text/css">
+	/* SMALL SCREENS */
+	@media only screen and (max-width: 450px) {
+		#fiveletterwords {
+			width: 100%;
+			background-color: red;
+		}
+		#five-letter-word, #five-letter-input {
+			width: 90%;
+		}
+	}
+	/* TABLETS */
+	@media only screen and (min-width: 451px) and (orientation: portrait) {
+		#fiveletterwords {
+			width: 90%;
+			margin: auto;
+			background-color: yellow;
+		}
+		#five-letter-word, #five-letter-input {
+			width: 80%;
+		}
+	}
+	/* LANDSCAPE MID */
+	@media only screen and (min-width: 451px) and (orientation: landscape) {
+		#fiveletterwords {
+			width: 80%;
+			margin: auto;
+			background-color: green;
+		}
+		#five-letter-word, #five-letter-input {
+			width: 70%;
+		}
+	}
+	/* BIG SCREENS */
+	@media only screen and (min-width: 1200px) and (orientation: landscape) {
+		#fiveletterwords {
+			width: 67%;
+			margin: auto;
+			background-color: blue;
+		}
+		#five-letter-word, #five-letter-input {
+			width: 60%;
+		}
+	}
+	/* MAIN */
+	#fiveletterwords {
+		min-height: 80vh;
+	}
+	/* CONTAINERS */
+	#word-container, #input-container {
+		width: 100%;
+		text-align: center;
+	}
+	#word-container {
+		background-color: cyan;
+	}
+	#input-container {
+		background-color: orange;
+	}
+	/* TEXT */
+	#five-letter-word, #five-letter-input {
+		margin: 0px auto;
+		padding: 0px 10px !important;
+		font-family: 'Roboto Mono', sans-serif;
+		font-weight: 900;
+		text-align: left;
+	}
+	#five-letter-word {
+		background-color: white;
+	    border: 1px solid hsl(0, 0%, 80%);
+	    border-radius: 5px;
+	}
+	#five-letter-input {
+		text-transform: uppercase;
+	}
+	/*  */
+
+</style>
+<!------------------------------------------->
+<div id="fiveletterwords" class="no-select">
+<!------------------------------------------->
+	<div id="word-container">
+		<p id="five-letter-word">
+			Ready</p>
+			</div>
+
+	<div id="input-container">
+		<input type="text" 
+			id="five-letter-input" 
+			name="five-letter-input"
+			value="Ready">
+			</input>
+			</div>
+
+	<div>
+		<h1 id="window-size">Text</h1>
+		<div></div>
+		<div></div>
+	</div>
+</div> <!-- END FIVE LETTER WORDS -->
+<!------------------------------------------->
+<!-- JAVASCRIPT -->
+<!------------------------------------------->
+<script src="{{ url_for('static', filename='/data/five-letter-words/fiveLetterWords.js') }}"></script>
+<script src="{{ url_for('static', filename='/js/fittext.js') }}"></script>
+<script type="text/javascript">
+
+// GLOBALS
+let fiveLetterWord = document.getElementById("five-letter-word"),
+	currentWord = "READY";
+	input = document.getElementById("five-letter-input"),
+	timer = document.getElementById("five-letter-timer"),
+	count = 0,
+	scoreText = document.getElementById("five-letter-score"),
+	score = 0;
+
+// INITIALIZE
+fiveLetterWord.innerHTML = currentWord;
+fiveLetterWord.style = "color: hsl(0, 0%, 50%)";
+window.fitText(fiveLetterWord, 0.333);
+window.fitText(input, 0.333);
+
+// NEW 5 LETTER WORD
+function newFiveLetterWord() {
+	let randomIndex = Math.floor((Math.random() * 937) + 1);
+		newWord = fiveLetterWords[randomIndex.toString()];
+
+	return newWord;
+}
+
+// CHECK INPUT
+function checkInput () {
+	
+}
+
+// CHECK WINDOW SIZE
+window.onresize = function() {
+	let w = window.innerWidth,
+		h = window.innerHeight,
+		// Test element here:
+		a = document.getElementById("window-size");
+
+	a.innerHTML = w + "w &times " + h + "h";
+}
+
+</script>
+<!------------------------------------------->
+{% endblock content %}

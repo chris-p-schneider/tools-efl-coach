@@ -1,0 +1,43 @@
+{
+    "word": "orange",
+    "wordV": 2,
+    "ipa": "/ˈɔrəndʒ/",
+    "audio": "https://lex-audio.useremarkable.com/mp3/orange_us_1_rr.mp3",
+    "type": "noun",
+    "typeV": 3,
+    "definition": "a citrus fruit that is round and that has an orange skin",
+    "definitionV": 3,
+    "images": [
+        "https://purepng.com/public/uploads/large/purepng.com-orange-orangeorangefruitbitter-orangeorangesclip-art-1701527337094lqueg.png"
+    ],
+    "imagesV": 3,
+    "imageSelected": "https://purepng.com/public/uploads/large/purepng.com-orange-orangeorangefruitbitter-orangeorangesclip-art-1701527337094lqueg.png",
+    "syllables": 2,
+    "syllablesV": 2,
+    "sentence": "I prefer oranges to apples, but neither are as good as mangoes! ",
+    "sentenceV": 2,
+    "related": [
+        "orangeade",
+        "orangery",
+        "oranges",
+        "orangish"
+    ],
+    "relatedV": 2,
+    "synonyms": [
+        "citrus",
+        "red-yellow",
+        "tangerine"
+    ],
+    "synonymsV": 2,
+    "antonyms": [],
+    "antonymsV": 2,
+    "rhymes": [
+        "borage",
+        "door hinge",
+        "florence",
+        "laurence",
+        "mortgage",
+        "porridge"
+    ],
+    "rhymesV": 2
+}

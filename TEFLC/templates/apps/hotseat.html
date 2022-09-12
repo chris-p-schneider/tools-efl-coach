@@ -1,0 +1,271 @@
+{% extends "layout.html" %}
+{% block content %}
+<!-------------------------------------------->
+<!-- EXTRA GOOGLE FONTS -->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+<!-------------------------------------------->
+<!-- HOT SEAT STYLES -->
+<style>
+    #hot-seat {
+    	width: 100%;
+    	height: 100%;
+    	z-index: -1;
+    }
+    .full-frame {
+    	width: 100%;
+    	height: 90vh;
+    }
+    /* chairs */
+    #hot-seat-frame-0 {
+    	position: relative;
+    	z-index: 0;
+    } 
+    /* title */
+    #hot-seat-frame-1 {
+    	position: absolute;
+    	top: 10px;
+    	z-index: 1;
+    } 
+    /* fire */
+    #hot-seat-frame-2 {
+		position: absolute;
+		top: 0px;
+    	z-index: 2;
+    } 
+    /* words */
+    #hot-seat-frame-3 {
+    	position: absolute;
+    	width: 100%;
+        text-align: center;
+
+    	z-index: 3;
+    } 
+
+    #hot-seat-top {
+    	margin-top: 10px;
+    }
+    #hot-seat-title {
+        font-family: 'Luckiest Guy';
+        font-size: 20vh;
+        color: hsl(25, 100%, 0%);
+        text-shadow: 0px 1px 9px orange;
+        animation: glowing-text 5s linear 0s infinite;
+    }
+
+    #hot-seat-bottom {
+    	position: relative;
+    }
+
+    .left-side, .right-side {
+    	display: flex;
+    	flex-direction: column;
+    	height: 100%;
+    }
+    .left-side {
+        text-align: left;
+    }
+    .right-side {
+        text-align: right;
+    }
+
+    #left-chair, #right-chair {
+    	margin-top: auto;
+        width: 40%;
+        max-width: 350px;
+        position: absolute;
+		bottom: 10px;
+    }
+    #left-chair {
+    	left: 10px;
+        animation: left-chair-shadows 5s ease-in-out 0s infinite;
+    }
+    #right-chair {
+    	right: 10px;
+        animation: right-chair-shadows 5s linear 0s infinite;
+    }
+    .chair {
+    	width: 100%;
+    }
+
+    #fire-left, #fire-right {
+    	margin-top: auto;
+    	width: 33%;
+        max-width: 250px;
+        position: absolute;
+        object-fit: cover;
+    }
+    #fire-left {
+    	left: 6%;
+    }
+    #fire-right {
+    	right: 6%;
+        transform: scaleX(-1)
+    }
+    .fire {
+    	width: 100%;
+        filter: drop-shadow(0px 3px 5px hsl(30, 100%, 33%));
+    }
+
+	#hot-seat-words {
+        font-size: 10vw;
+        text-shadow: 0px 0px 5px white;
+    }
+
+	#hot-seat-ground {
+		position: absolute;
+		bottom: 0px;
+		width: 100%;
+		height: 25%;
+		z-index: 0;
+		background-image: linear-gradient(hsla(250, 30%, 30%, 1.0), hsla(0, 0%, 100%, .5));
+		display: none;
+	}
+
+    #hot-seat-youtube {
+        position: fixed;
+        left: 0px;
+        top: 50%;
+        z-index: -5;
+    }
+
+    #youtube-button {
+        position: fixed;
+        z-index: 10;
+        left: 10px;
+        bottom: 10px;
+        transition: text-shadow .3s ease-in-out;
+    }
+    #youtube-button:active {
+        text-shadow: 0px 0px 3px cyan;
+    }
+    #youtube-button:hover {
+
+    }
+
+    @media (orientation: portrait) {
+        #fire-left, #fire-right {
+        	bottom: 20vw;
+        }
+        #hot-seat-frame-3 {
+			top: 50%;
+        }
+    }
+    @media only screen and (min-width: 705px) {
+    	#fire-left, #fire-right {
+        	bottom: 25%;
+        }
+        #hot-seat-frame-3 {
+			top: 35%;
+        }
+	}
+    @media only screen and (min-width: 840px) {
+    	#fire-left, #fire-right {
+        	bottom: 30%;
+        }
+        #hot-seat-frame-3 {
+			top: 40%;
+        }
+	}
+
+    @keyframes glowing-text {
+        0% {text-shadow: 0px 1px 9px hsl(33, 100%, 50%);}
+        25% {text-shadow: 1px 0px 3px hsl(25, 100%, 33%);}
+        50% {text-shadow: 0px 1px 11px hsl(32, 100%, 50%);}
+        75% {text-shadow: 2px 3px 17px hsl(41, 100%, 67%);}
+        100% {text-shadow: 0px 1px 9px hsl(33, 100%, 50%);}
+    }
+    @keyframes left-chair-shadows {
+        0% {filter: drop-shadow(-10px 9px 9px hsla(30, 0%, 50%, .5));}
+        25% {filter: drop-shadow(-7px 15px 11px hsla(30, 0%, 33%, .5));}
+        50% {filter: drop-shadow(0px 21px 9px hsla(30, 0%, 55%, .5));}
+        75% {filter: drop-shadow(-3px 5px 6px hsla(30, 0%, 44%, .5));}
+        100% {filter: drop-shadow(-10px 9px 9px hsla(30, 0%, 50%, .5));}
+    }
+    @keyframes right-chair-shadows {
+        0% {filter: drop-shadow(10px 9px 9px hsla(30, 0%, 50%, .5));}
+        25% {filter: drop-shadow(15px 7px 5px hsla(30, 0%, 33%, .5));}
+        50% {filter: drop-shadow(21px 3px 7px hsla(30, 0%, 66%, .5));}
+        75% {filter: drop-shadow(7px 5px 11px hsla(30, 0%, 44%, .5));}
+        100% {filter: drop-shadow(10px 9px 9px hsla(30, 0%, 50%, .5));}
+    }
+</style>
+<!-------------------------------------------->
+<!-- HOT SEAT -->
+<div class="block-content">
+<div id="hot-seat" class="no-select">
+
+<!-- ground-plane for background -->
+<div id="hot-seat-ground">&nbsp;</div>
+
+<!-- z0 chairs -->
+<div id="hot-seat-frame-0" class="full-frame">
+    <div class="left-side l-col">
+    	<div id="left-chair">
+        	<img class="chair" src="{{ url_for('static', filename='img/apps/hotseat/chair-left.png') }}">
+        	</div>
+    	</div>
+    <div class="right-side r-col">
+	    <div id="right-chair">
+	        <img class="chair" src="{{ url_for('static', filename='img/apps/hotseat/chair-right.png') }}">
+	        </div>
+	    </div>
+	</div>
+
+<!-- z1 title -->
+<div id="hot-seat-frame-1" class="full-frame">
+    <div id="hot-seat-top">
+        <h1 id="hot-seat-title">
+            Hot Seat!</h1><br>
+		</div>
+    </div>
+
+<!-- z2 fire -->
+<div id="hot-seat-frame-2" class="full-frame">
+	<div class="left-side l-col">
+	    <div id="fire-left">
+	        <img class="fire" src="{{ url_for('static', filename='img/apps/hotseat/fire.gif') }}">
+	        </div>
+		</div>
+	<div class="right-side r-col">
+	    <div id="fire-right">
+	        <img class="fire" src="{{ url_for('static', filename='img/apps/hotseat/fire.gif') }}">
+	        </div>
+		</div>
+	</div>
+
+<!-- z3 words -->
+<div id="hot-seat-frame-3">
+    <!-- VOCAB GOES HERE-->
+    <h1 id="hot-seat-words">
+        &nbsp;
+        </h1>
+    </div>
+
+<p id="youtube-button" onclick="youtubeClick()">
+    ⏯️
+    </p>
+
+<!-- end hotseat -->
+</div>
+<!-- end block -->
+</div>
+<iframe id="hot-seat-youtube" 
+width="350" height="200" 
+src="https://www.youtube-nocookie.com/embed/L_LUpnjgPso?&autoplay=1"
+frameborder="0" 
+allow="accelerometer; autoplay; 
+clipboard-write; encrypted-media; 
+gyroscope; picture-in-picture" 
+allowfullscreen></iframe>
+<!-------------------------------------------->
+<!-- IMAGE CREDITS --
+
+Chair image by <a href="https://pixabay.com/users/openclipart-vectors-30363/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=157788">
+OpenClipart-Vectors</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=157788">
+Pixabay</a>
+
+Fire gif by <a href="https://totallytransparent.tumblr.com/post/61320284768/transparent-fire-gif-made-by-totally-transparent">
+Totally Transparent</a> on Tumblr.
+ -->
+{% endblock content %}

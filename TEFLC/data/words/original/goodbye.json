@@ -1,0 +1,64 @@
+{
+    "word": "goodbye",
+    "wordV": 0,
+    "ipa": "/ɡʊdˈbaɪ/",
+    "audio": "https://lex-audio.useremarkable.com/mp3/goodbye_us_1.mp3",
+    "type": "exclamation",
+    "typeV": 0,
+    "definition": "a remark or gesture made when someone is leaving",
+    "definitionV": 0,
+    "images": [
+        "https://live.staticflickr.com/8625/16485104310_f676dbce92_b.jpg",
+        "https://images.unsplash.com/photo-1539800355971-94e7e5307689?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D",
+        "https://publicdomainvectors.org/photos/Very-Happy-Smiling-Family.png"
+    ],
+    "imagesV": 0,
+    "imageSelected": "",
+    "syllables": 2,
+    "syllablesV": 0,
+    "sentence": "She said a sentimental goodbye.",
+    "sentenceV": 0,
+    "related": [
+        "good",
+        "good night",
+        "good-bye",
+        "gooden",
+        "goodies",
+        "goodness",
+        "goodnight",
+        "goods",
+        "goodwill",
+        "goody"
+    ],
+    "relatedV": 0,
+    "synonyms": [
+        "Godspeed",
+        "adieu",
+        "adios",
+        "bye-bye",
+        "cheerio",
+        "ciao",
+        "leave-taking",
+        "parting",
+        "so long",
+        "swan song"
+    ],
+    "synonymsV": 0,
+    "antonyms": [
+        "hello"
+    ],
+    "antonymsV": 0,
+    "rhymes": [
+        "buy",
+        "by",
+        "eye",
+        "fly",
+        "hi",
+        "high",
+        "i",
+        "lie",
+        "pie",
+        "tie"
+    ],
+    "rhymesV": 0
+}

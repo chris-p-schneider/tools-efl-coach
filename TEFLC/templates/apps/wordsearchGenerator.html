@@ -1,0 +1,250 @@
+{% extends "layout.html" %}
+{% block content %}
+<!------------------------------------------->
+<!-- Wordsearch Generator -->
+
+<!------------------------------------------->
+<style type="text/css">
+	#wordsearch-generator {
+		text-align: center;
+	}
+	.wordsearch-container {
+		position: relative;
+		display: inline-block;
+		text-align: center;
+		padding: 0px 0px 10px 0px;
+		margin: 0px auto 0px auto;
+	}
+	#wordsearch, #answer-key {
+		font-family: "Roboto Mono", sans-serif;
+		font-size: 24px;
+		letter-spacing: 3px;
+		padding: 20px 25px;
+		margin: 0px 0px 0px 0px;
+		border: 1px solid hsl(0, 0%, 20%);
+	}
+	.word-bank-container {
+		display: inline-block;
+		position: absolute;
+		top: 50%;
+		height: 200px;
+		margin-top: -100px;
+	}
+	.word-bank {
+		display: inline-block;
+		padding: 20px;
+		margin: auto 0px auto 20px;
+		border: 1px solid hsl(0, 0%, 20%);
+	}
+	.bank-word-L {
+		font-family: "Roboto Mono", sans-serif;
+		font-size: 22px;
+		line-height: .75;
+	}
+	.bank-word-M {
+		font-family: "Roboto Mono", sans-serif;
+		font-size: 20px;
+		line-height: .6115;
+	}
+	.bank-word-S {
+		font-family: "Roboto Mono", sans-serif;
+		font-size: 14px;
+		line-height: 1;
+	}
+	.wordsearch-controls {
+		padding: 5px;
+		margin: auto 0px auto 20px;
+		border: 1px solid hsl(0, 0%, 80%);
+	}
+	.wordsearch-controls > p {
+		font-weight: 300;
+		margin: 5px 0px 5px 0px;
+	}
+	.xy-input {
+		width: 40px;
+		padding: 5px !important;
+		margin: 2px;
+		font-family: "Roboto", sans-serif;
+		font-size: 18px;
+		font-weight: 200;
+	}
+	.xy-submit {
+		margin: 5px 0px 0px 0px;
+	}
+	.xy-submit, .show-answers {
+		font-weight: 300;
+	}
+	.show-answers {
+		margin: 5px 0px 2.5px 0px;
+	}
+</style>
+
+<!------------------------------------------->
+<div id="wordsearch-generator">
+<table class="wordsearch-container">
+	<tr>
+		<td>
+		<div id="wordsearch">
+			{% for row in wordsearch.wordsearch %}
+				{% if loop.index != wordsearch.wordsearch|length %}
+					{{ row }}<br>
+				{% else %}
+					{{ row }}
+				{% endif %}
+			{% endfor %}
+			</div>
+		</td>
+		<td>
+		<div class="word-bank">
+			{% if wordsearch.vocabList|length < 21 %}
+				{% for word in wordsearch.vocabList %}
+					{% if loop.index != wordsearch.vocabList|length %}
+						{% if wordsearch.vocabList|length < 11 %}
+							<p class="bank-word-L">{{ word|upper }}</p><br>
+						{% else %}
+							<p class="bank-word-M">{{ word|upper }}</p><br>
+						{% endif %}
+					{% else %}
+						{% if wordsearch.vocabList|length < 11 %}
+							<p class="bank-word-L">{{ word|upper }}</p>
+						{% else %}
+							<p class="bank-word-M">{{ word|upper }}</p>
+						{% endif %}
+					{% endif %}
+				{% endfor %}
+			{% else %}
+				<div class="l-col">
+				{% for word in wordsearch.vocabList %}
+					{% if loop.index < wordsearch.vocabList|length / 2 + 1 %}
+						<p class="bank-word-S">{{ word|upper }}</p><br>
+					{% endif %}
+				{% endfor %}
+				</div>
+				<div class="r-col">
+				{% for word in wordsearch.vocabList %}
+					{% if loop.index > wordsearch.vocabList|length / 2 + 1 %}
+						<p class="bank-word-S">{{ word|upper }}</p><br>
+					{% endif %}
+				{% endfor %}
+				</div>
+			{% endif %}
+			</div>
+			{% if wordsearch.vocabList|length < 11 %}
+			<br><br>
+			<div class="wordsearch-controls no-select">
+				<p>Generate...</p>
+				<form action="" method="POST">
+				{{ form.hidden_tag() }}
+				{{ form.xValue.label }}
+				{{ form.xValue(class="xy-input",
+					type="number", value="12",
+					min=wordsearch.longestAndTotal[0], max=100) }}<br>
+				{{ form.yValue.label }}
+				{{ form.yValue(class="xy-input",
+					type="number", value="18",
+					min=wordsearch.longestAndTotal[0], max=100) }}<br>
+				{{ form.submit(class="xy-submit") }}
+				</form>
+				<button class="show-answers"
+					onclick="toggleAnswers()">
+					Answer Key</button>
+				</div>
+			{% endif %}
+		</td>
+	{% if wordsearch.vocabList|length > 10 %}
+	<td>
+	<div class="wordsearch-controls no-select">
+		<p>Generate...</p>
+		<form action="" method="POST">
+		{{ form.hidden_tag() }}
+		{{ form.xValue.label }}
+		{{ form.xValue(class="xy-input",
+			type="number", value="12",
+			min=wordsearch.longestAndTotal[0], max=100) }}<br>
+		{{ form.yValue.label }}
+		{{ form.yValue(class="xy-input",
+			type="number", value="18",
+			min=wordsearch.longestAndTotal[0], max=100) }}<br>
+		{{ form.submit(class="xy-submit") }}
+		</form>
+		<button class="show-answers"
+			onclick="toggleAnswers()">
+			Answer Key</button>
+		</div>
+	</td>
+	{% endif %}
+	</tr>
+</table>
+<!------------------------------------------->
+<hr>
+<table class="wordsearch-container hidden"
+	id="wordsearch-answers">
+	<tr>
+		<td>
+		<div id="answer-key">
+			{% for row in wordsearch.answerKey %}
+				{% if loop.index != wordsearch.answerKey|length %}
+					{{ row }}<br>
+				{% else %}
+					{{ row }}
+				{% endif %}
+			{% endfor %}
+			</div>
+		</td>
+		<td>
+		<div class="word-bank">
+			{% if wordsearch.vocabList|length < 21 %}
+				{% for word in wordsearch.vocabList %}
+					{% if loop.index != wordsearch.vocabList|length %}
+						{% if wordsearch.vocabList|length < 11 %}
+							<p class="bank-word-L">{{ word|upper }}</p><br>
+						{% else %}
+							<p class="bank-word-M">{{ word|upper }}</p><br>
+						{% endif %}
+					{% else %}
+						{% if wordsearch.vocabList|length < 11 %}
+							<p class="bank-word-L">{{ word|upper }}</p>
+						{% else %}
+							<p class="bank-word-M">{{ word|upper }}</p>
+						{% endif %}
+					{% endif %}
+				{% endfor %}
+			{% else %}
+				<div class="l-col">
+				{% for word in wordsearch.vocabList %}
+					{% if loop.index < wordsearch.vocabList|length / 2 + 1 %}
+						<p class="bank-word-S">{{ word|upper }}</p><br>
+					{% endif %}
+				{% endfor %}
+				</div>
+				<div class="r-col">
+				{% for word in wordsearch.vocabList %}
+					{% if loop.index > wordsearch.vocabList|length / 2 + 1 %}
+						<p class="bank-word-S">{{ word|upper }}</p><br>
+					{% endif %}
+				{% endfor %}
+				</div>
+			{% endif %}
+			</div>		</td>
+	</tr>
+</table>
+</div> <!-- END WS GEN -->
+<!------------------------------------------->
+<!-- JAVASCRIPT -->
+<script type="text/javascript">
+
+let answerTable = document.getElementById("wordsearch-answers"),
+	answersVisible = false;
+
+function toggleAnswers() {
+	if (answersVisible === false) {
+		answerTable.className = "wordsearch-container";
+		answersVisible = true;
+	} else {
+		answerTable.className = "wordsearch-container hidden";
+		answersVisible = false;
+	}
+}
+</script>
+<!------------------------------------------->
+{% endblock content %}
