@@ -1,0 +1,222 @@
+/* teflc-theme.css */
+
+/* SITE COLORS */
+.orange-font {
+    /* #ffa630 */
+    color: hsl(34, 100%, 59%);
+}
+.orange-bg {
+    background-color: hsl(34, 100%, 59%);
+}
+.blue-font {
+    /* #0c4b9e */
+    color: hsl(214, 86%, 33%);
+}
+.blue-bg {
+    background-color: hsl(214, 86%, 33%);
+}
+
+/* BUTTON COLORS */
+.tint-blue {
+	background-color: hsl(240, 90%, 80%) !important;
+}
+.tint-cyan {
+	background-color: hsl(180, 90%, 80%) !important;
+}
+.tint-green {
+	background-color: hsl(120, 90%, 80%) !important;
+}
+.tint-yellow {
+	background-color: hsl(60, 90%, 80%) !important;
+}
+.tint-orange {
+	background-color: hsl(45, 90%, 80%) !important;
+}
+.tint-red {
+	background-color: hsl(0, 90%, 80%) !important;
+}
+.tint-none {
+	background-color: hsl(0, 0%, 80%) !important;
+}
+
+/* TEXT COLOR CLASSES */
+.font-red {
+    color: red !important;
+}
+.font-orange {
+    color: orange !important;
+}
+.font-yellow {
+    color: yellow !important;
+}
+.font-green {
+    color: green !important;
+}
+.font-blue {
+    color: blue !important;
+}
+.font-purple {
+    color: purple !important;
+}
+
+/* TEXT SIZE CLASSES */
+.font12 {
+    font-size: 12px !important;
+}
+.font14 {
+    font-size: 14px !important;
+}
+.font16 {
+    font-size: 16px !important;
+}
+.font18 {
+    font-size: 18px !important;
+}
+.font20 {
+    font-size: 20px !important;
+}
+.font24 {
+    font-size: 24px !important;
+}
+.font32 {
+    font-size: 32px !important;
+}
+.font36 {
+    font-size: 36px !important;
+}
+.font48 {
+    font-size: 48px !important;
+}
+
+/* FONT STYLE CLASSES */
+.font-normal {
+	font-style: normal !important;
+}
+.font-italic {
+	font-style: italic !important;
+}
+.font-oblique {
+	font-style: oblique !important;
+}
+.font-small-caps {
+	font-variant: small-caps !important;
+}
+
+.font-weight-100 {
+	font-weight: 100 !important;
+}
+.font-weight-200 {
+	font-weight: 200 !important;
+}
+.font-weight-300 {
+	font-weight: 300 !important;
+}
+.font-weight-400 {
+	font-weight: 400 !important;
+}
+.font-weight-500 {
+	font-weight: 500 !important;
+}
+.font-weight-600 {
+	font-weight: 600 !important;
+}
+.font-weight-700 {
+	font-weight: 700 !important;
+}
+.font-weight-800 {
+	font-weight: 800 !important;
+}
+.font-weight-900 {
+	font-weight: 900 !important;
+}
+
+
+/* SHORT BRs */
+div.short-br5 {
+	display: block;
+	height: 5px;
+}
+div.short-br10 {
+	display: block;
+	height: 10px;
+}
+div.short-br15 {
+	display: block;
+	height: 15px;
+}
+div.short-br20 {
+	display: block;
+	height: 20px;
+}
+div.short-br25 {
+	display: block;
+	height: 25px;
+}
+
+/* MARGIN CLASSES */
+.top0 {
+    margin-top: 0px !important;
+}
+.top5 {
+    margin-top: 5px !important;
+}
+.top10 {
+    margin-top: 10px !important;
+}
+.top20 {
+    margin-top: 20px !important;
+}
+.bottom0 {
+    margin-bottom: 0px !important;
+}
+.bottom5 {
+    margin-bottom: 5px !important;
+}
+.bottom10 {
+    margin-bottom: 10px !important;
+}
+.bottom20 {
+    margin-bottom: 20px !important;
+}
+.left5 {
+    margin-left: 5px !important;
+}
+.left10 {
+    margin-left: 10px !important;
+}
+.right5 {
+    margin-right: 5px !important;
+}
+.right10 {
+    margin-right: 10px !important;
+}
+
+/* ALIGN CLASSES */
+.align-left {
+    text-align: left !important;
+}
+.align-center {
+    text-align: center !important;
+}
+.align-right {
+    text-align: right !important;
+}
+.float-left {
+    float: left;
+}
+.float-right {
+    float: right;
+}
+
+/* NO SOMETHING */
+.no-edges {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+.no-padding {
+    padding: 0px !important;
+}
+.no-margins {
+    margin: 0px !important;
+}

@@ -1,0 +1,169 @@
+/* teflc-media.css */
+
+/* Low VH */
+@media only screen and (max-height: 400px) {
+    .app-title {
+        display: none !important;
+    }
+}
+
+/* XXS devices (phones, 400px and down) */
+@media only screen and (max-width: 400px) {
+    .spacer {
+        width: 80%;
+        margin: 10px auto 10px auto;
+    }
+    #nav {
+        font-size: 16px;
+    }
+    #back-link {
+        margin-left: 8%;
+    }
+    .account-link {
+        margin-right: 8%;
+    }
+    .l-col-30 {
+        width: 100%;
+    }
+    .r-col-70 {
+        width: 100%;
+    }
+}
+
+/* Extra small devices (phones, 400px and up) */
+@media only screen and (min-width: 400px) {
+    .spacer {
+        width: 80%;
+        margin: 10px auto 10px auto;
+    }
+    #nav {
+        font-size: 18px;
+    }
+    #back-link {
+        margin-left: 8%;
+    }
+    .account-link {
+        margin-right: 8%;
+    }    
+    .l-col-30 {
+        width: 100%;
+    }
+    .r-col-70 {
+        width: 100%;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .spacer {
+        width: 80%;
+        margin: 10px auto 10px auto;
+    }
+    #nav {
+        font-size: 20px;
+    }
+    #back-link {
+        margin-left: 8%;
+    }
+    .account-link {
+        margin-right: 8%;
+    }    
+    .l-col-30 {
+        width: 30%;
+    }
+    .r-col-70 {
+        width: 69%;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .spacer {
+        width: 80%;
+        margin: 10px auto 10px auto;
+    }
+    #nav {
+        font-size: 22px;
+    }
+    #back-link {
+        margin-left: 8%;
+    }
+    .account-link {
+        margin-right: 8%;
+    }    
+    .l-col-30 {
+        width: 30%;
+    }
+    .r-col-70 {
+        width: 69%;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .spacer {
+        width: 70%;
+        margin: 10px auto 10px auto;
+    }
+    #nav {
+        font-size: 24px;
+    }
+    #back-link {
+        margin-left: 12%;
+    }
+    .account-link {
+        margin-right: 12%;
+    }    
+    .l-col-30 {
+        width: 30%;
+    }
+    .r-col-70 {
+        width: 69%;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .spacer {
+        width: 60%;
+        margin: 10px auto 10px auto;
+    }
+    #nav {
+        font-size: 24px;
+    }
+    #back-link {
+        margin-left: 18%;
+    }
+    .account-link {
+        margin-right: 18%;
+    }    
+    .l-col-30 {
+        width: 30%;
+    }
+    .r-col-70 {
+        width: 69%;
+    }
+}
+
+/* XXL devices (TVs? 1600px and up) */
+@media only screen and (min-width: 1600px) {
+    .spacer {
+        width: 60%;
+        margin: 10px auto 10px auto;
+    }
+    #nav {
+        font-size: 24px;
+    }
+    #back-link {
+        margin-left: 18%;
+    }
+    .account-link {
+        margin-right: 18%;
+    }        
+    .l-col-30 {
+        width: 30%;
+    }
+    .r-col-70 {
+        width: 69%;
+    }
+}

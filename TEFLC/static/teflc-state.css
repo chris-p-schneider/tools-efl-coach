@@ -1,0 +1,157 @@
+/* teflc-state.css */
+
+/* TESTING CLASSES */
+.test-purple {
+    background-color: purple !important;
+}
+.test-red {
+    background-color: red !important;
+}
+.test-blue {
+    background-color: blue !important;
+}
+.test-green {
+    background-color: green !important;
+}
+.test-orange {
+    background-color: orange !important;
+}
+
+/* STATE CLASSES */
+.no-select {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+.expanded {
+    max-height: inherit;
+    transition: max-height .3s ease-out;
+}
+.collapsed {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .3s ease-out;
+}
+
+/* DISPLAY CLASSES */
+.inline-block {
+    display: inline-block;
+}
+.block {
+    display: block;
+}
+.hidden {
+    display: none !important;
+}
+
+
+/* HOVER EFFECTS */
+/* NAV BAR */
+.nav-link:hover {
+    text-shadow: 0px 0px 7px hsl(214, 86%, 5%);
+}
+#title:hover {
+    color: white;
+}
+.nav-button:hover {
+    filter: drop-shadow(0px 0px 5px hsl(214, 0%, 34%));
+    -webkit-filter: drop-shadow(0px 0px 5px hsl(214, 0%, 34%));
+}
+/* HOVER EFFECTS */
+/* MAIN CONTENT */
+.icon:hover {
+    box-shadow: 0px 0px 7px hsl(0,0%,67%);
+    opacity: 100%;
+}
+.status-para a:hover, .status-para a span:hover {
+    color: hsl(34, 100%, 59%) !important;
+}
+.h-sad-banner:hover {
+    box-shadow: 0px 0px 7px hsl(0,0%,20%);
+}
+/* LOGIN & REGISTER */
+.suggest-link:hover {
+    color: hsl(214, 86%, 33%);
+}
+small:hover {
+    font-style: italic;
+}
+/* ACCOUNT */
+.account-photo:hover {
+    opacity: .8;
+}
+.account-upgrade:hover {
+    font-weight: 500;
+}
+.user-list-title:hover {
+    color: hsl(214, 86%, 33%);
+}
+.new-list-button:hover,
+.list-button:hover,
+.verification-button:hover {
+    box-shadow: 0px 0px 5px hsl(0,0%, 80%);
+}
+/* FOOTER */
+#to-top:hover {
+    color: hsl(214, 86%, 33%);
+}
+/* LISTS */
+.user-list-words a:hover {
+    color: hsl(214, 86%, 33%);
+}
+.word-link:hover {
+    color: hsl(34, 100%, 59%);
+}
+/* WORD INFO */
+.word-status-unverfied a:hover {
+    font-weight: 900;
+}
+.word-info-bottom-column a:hover {
+    font-weight: 500;
+    color: hsl(120, 90%, 50%);
+}
+.word-info-reset:hover {
+    color: hsl(240, 50%, 50%);
+}
+.close-modal:hover {
+    color: hsl(34, 100%, 59%);
+    text-shadow: 0px 0px 3px hsl(214, 86%, 10%);
+    cursor: pointer;
+}
+
+
+/* ACTIVE EFFECTS */
+input[type=submit]:active, 
+.new-list-button:active {
+    background-color: hsl(214, 86%, 20%) !important;
+    color: white !important;
+}
+.list-button:active, .verification-button:active {
+    background-color: hsl(0, 0%, 33%) !important;
+    color: white !important;
+}
+
+
+/* FOCUS EFFECTS */
+input:focus {
+    background-color: hsl(120, 0%, 80%);
+}
+.list-input input:focus {
+    background-color: hsl(34, 90%, 80%);
+}
+.user-form input:focus,
+.user-form textarea:focus {
+    background-color: hsl(120, 100%, 90%);
+}
+
+
+/* IMAGE EFFECTS */
+.unverified-image {
+    filter: hue-rotate(240deg) grayscale(50%) blur(1px);
+}
+.word-image-unverified:hover {
+    border: 5px solid hsl(120, 67%, 67%) !important;
+}
+.word-image-unverified-remove-button:hover {
+    color: hsl(0, 50%, 67%) !important;
+}

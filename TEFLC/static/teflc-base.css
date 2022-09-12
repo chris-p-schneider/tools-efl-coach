@@ -1,0 +1,93 @@
+/* teflc-base.css */
+
+/* TAG DEFAULTS */
+html, body {
+    height: 100%;
+    width: 100%;
+}
+html {
+    background-color: hsl(0,0%,100%);
+    margin: 0px;
+    padding: 0px;
+    scroll-behavior: smooth
+}
+body {
+    background-color: hsl(0,0%,100%);
+    
+    margin: 0px;
+    padding: 0px;
+    
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    color: #000;
+    
+}
+div {
+}
+h1, h2, h3, h4, h5, h6 {
+    margin: 0px;
+    padding: 5px 0px 0px 0px;
+}
+p, span {
+    margin: 0px;
+}
+hr {
+    margin: 0px 0px 10px 0px;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+form, fieldset, legend, input, label, button {
+}
+fieldset {
+    border: none;
+}
+select {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    outline: none;
+}
+input, textarea, button {
+    padding: 10px !important;
+    
+    font-family: 'Roboto', sans-serif;
+    border: 1px solid hsl(0, 0%, 80%);
+    border-radius: 5px;
+    outline: none;
+
+    transition: background-color .5s ease-in-out;
+}
+textarea {
+    resize: vertical;
+}
+textarea::placeholder {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 100;
+}
+input[type=submit] {
+    font-size: 16px;
+    transition: none;
+}
+button {
+    outline: none;
+}
+ol {
+    list-style: none;
+    counter-reset: yeet;
+}
+ol > li::before {
+    content: counter(yeet)".";
+    counter-increment: yeet;
+    font-weight: 500;
+    margin: 0px 10px 0px -30px;
+}
+ul {
+    list-style: none;
+}
+code + span {
+    font-weight: 300;
+}

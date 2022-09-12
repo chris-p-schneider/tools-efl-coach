@@ -1,0 +1,91 @@
+/* teflc-animation.css */
+
+/* FLASH ALERT FADE-IN */
+@keyframes fade-in {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+/* FLASH ALERT FADE-OUT */
+.fade-out {
+	animation: fade-out .5s ease-out;
+}
+@keyframes fade-out {
+	0% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+		display: none;
+	}
+}
+
+/* VERIFICATION PROMPT */
+.please-verify {
+    animation: please-verify 2s ease-in-out infinite alternate;
+}
+@keyframes please-verify {
+	0% {
+	    background-color: hsl(0, 100%, 90%);
+	}	
+	100% {
+	    background-color: hsl(0, 100%, 70%);
+	    box-shadow: 0px 0px 5px hsl(0, 0%, 50%);
+	}
+}
+
+/* LOADING ELLIPSIS */
+@keyframes ellipsis {
+  20% {
+    content: "";
+  }
+  40% {
+    content: "";
+  }
+  60% {
+    content: ".";
+  }
+  80% {
+    content: "..";
+  }
+  100% {
+    content: "...";
+  }
+}
+
+/* LOADING BAR */
+@keyframes loading-progress {
+	from {
+		background-color: hsl(34, 100%, 59%);
+	}
+	to {
+		background-color: hsl(35, 100%, 60%);
+	}
+}
+
+/* INPUT CORRENT & INCORRECT */
+@keyframes incorrect-wiggle {
+	0% {
+		-ms-transform: rotate(3deg);
+		transform: rotate(3deg);
+	}
+	100% {
+		-ms-transform: rotate(-3deg);
+		transform: rotate(-3deg);			
+	}
+}
+@keyframes correct-pulse {
+	0% {
+		-ms-transform: scale(1.05, 1.05);
+		transform: scale(1.05, 1.05);
+	}
+	100% {
+		-ms-transform: scale(1.05, 1.05);
+		transform: scale(1.05, 1.05);			
+	}
+}

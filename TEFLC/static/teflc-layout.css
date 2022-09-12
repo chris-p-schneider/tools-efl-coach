@@ -1,0 +1,182 @@
+/* teflc-layout.css 
+    color: hsl(34, 100%, 59%);
+    color: hsl(214, 86%, 33%);
+*/
+
+/* PAGE: MAIN-BODY */
+#main-body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    margin: 0px;
+    background-color: white;
+}
+
+/* TOP NAV BAR */
+/* mistakes
+    position: fixed;
+    top: 0px;
+
+ */
+
+#nav {
+    display: block;
+    width: 100%;
+    max-height: 100px;
+
+    box-shadow: 0px 1px 7px hsl(0,0%,50%);
+    background-color: hsl(214,86%,33%);
+    background-image: linear-gradient(hsl(214, 86%, 33%), hsl(214, 86%, 25%));
+    
+    z-index: 1;
+    overflow: visible;
+    transition: max-height .3s ease-in;
+}
+.nav-link {
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: white;
+    transition: text-shadow .3s ease-in-out;
+}
+.nav-button {
+    position: absolute;
+    left: 0px;
+    margin: 0px;
+    padding: 10px 10px;
+    z-index: 5;
+    transition: filter .3s ease-in-out;
+}
+
+#back-link {
+    float: left;
+    left: 0px;
+    font-weight: 400;
+}
+#title {
+    font-weight: 700;
+}
+.account-link-l, .account-link {
+    font-weight: 400;
+    float: right;
+}
+.account-link-l {
+    margin-right: 10px;
+}
+.account-link {
+    right: 0px;
+}
+.nav-bar {
+}
+
+
+/* FLASK BLOCK CONTENT */
+/* main block element within landing layout */
+div#block {
+    display: block;
+    margin-top: 10px;
+    background-color: hsl(0,0%,100%);
+    padding: 0px 0px 0px 0px;
+}
+
+/* MAIN CONTENT */
+/* full html within any app page */
+div.block-content {
+    position: relative;
+    display: block;
+    background-color: white;
+}
+/* block elements on any page */
+div.content {
+    display: block;
+    padding: 30px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    text-align: left;
+    background-color: white;
+    box-shadow: 0px 1px 3px hsl(0,0%,40%);
+}
+/* IN MEDIA CSS */
+.spacer {
+}
+
+
+/* PAGE ANCHORS */
+a#No-Prep-Apps::before, 
+a#New-Vocabulary-List::before, 
+a#Vocabulary-Apps::before,
+a#Classroom-Apps::before,
+a#Yola-Apps::before {
+    display: block;
+    content: "";
+    margin-top: -48px;
+    height: 48px;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+
+/* COLUMN FORMATTING */
+.l-col, .r-col {
+    display: inline-block;
+    margin: 0px;
+    padding: 0px;
+    width: 50%;
+}
+.l-col {
+    float: left;
+    text-align: left;
+}
+.r-col {
+    float: right;
+    text-align: left;
+}
+.l-col-30 {
+    display: inline-block;
+    vertical-align: top;
+}
+.r-col-70 {
+    display: inline-block;
+}
+
+
+/* MIDDLE SAD */
+div#mid-sad {
+    display: block;
+    margin-top: -10px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+/* FOOT BLOCK */
+div#foot-block {
+    display: block;
+    margin-top: auto;
+    width: 100%;
+}
+/* FOOT SAD */
+div#foot-sad {
+    width: 100%;
+    margin: 0px 0px 0px 0px;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* FOOT */
+div#foot {
+    width: 100%;
+    padding: 10px 0px;
+    margin: 10px 0px 0px 0px;
+    
+    color: white;
+    background-color: hsl(34,100%,59%);
+    box-shadow: 0px -1px 3px hsl(0,0%,75%);
+    font-size: 14px;
+}
+div#foot > a {
+    color: white;
+    font-weight: 500;
+}
