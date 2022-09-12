@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1000"
+   height="1000"
+   viewBox="0 0 264.58333 264.58333"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   sodipodi:docname="stop.svg"
+   inkscape:export-filename="/home/chsch/Documents/PYTHON/Tools.EFL.Coach/TEFLC v0.0.1/TEFLC/static/img/apps/controls/stop-active.png"
+   inkscape:export-xdpi="57.599995"
+   inkscape:export-ydpi="57.599995">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.8392807"
+     inkscape:cx="472.05902"
+     inkscape:cy="599.51631"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer2"
+     showgrid="true"
+     units="px"
+     showborder="true"
+     inkscape:showpageshadow="false"
+     borderlayer="false"
+     objecttolerance="5"
+     inkscape:snap-perpendicular="true"
+     inkscape:window-width="1562"
+     inkscape:window-height="833"
+     inkscape:window-x="38"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     gridtolerance="5"
+     guidetolerance="5"
+     inkscape:pagecheckerboard="true">
+    <inkscape:grid
+       type="xygrid"
+       id="grid10"
+       spacingx="26.458333"
+       spacingy="26.458333"
+       empcolor="#d55f93"
+       empopacity="0.53333333"
+       dotted="false" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>chsch</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:rights>
+          <cc:Agent>
+            <dc:title>© 2020, All rights reserved.</dc:title>
+          </cc:Agent>
+        </dc:rights>
+        <dc:publisher>
+          <cc:Agent>
+            <dc:title>chsch</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:description>chsch.info</dc:description>
+        <dc:contributor>
+          <cc:Agent>
+            <dc:title>chsch</dc:title>
+          </cc:Agent>
+        </dc:contributor>
+        <dc:language>English (US)</dc:language>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="White Background"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-32.416677)"
+     style="display:none"
+     sodipodi:insensitive="true">
+    <rect
+       style="opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:0.98507463;stroke:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.38743454;paint-order:normal"
+       id="rect816"
+       width="264.58334"
+       height="264.58334"
+       x="0"
+       y="32.416679" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Layer">
+    <rect
+       style="opacity:1;vector-effect:none;fill:#ff2e2e;fill-opacity:1;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.38823529;paint-order:normal"
+       id="rect815"
+       width="203.99324"
+       height="205.59685"
+       x="28.828445"
+       y="28.828449"
+       ry="45.690521"
+       rx="0" />
+    <rect
+       style="opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:8.83643532;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.38297873;paint-order:normal"
+       id="rect817"
+       width="107.24506"
+       height="111.79456"
+       x="78.669144"
+       y="76.394386"
+       ry="9.2454586" />
+  </g>
+</svg>

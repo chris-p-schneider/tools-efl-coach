@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="4000"
+   height="1000"
+   viewBox="0 0 1058.3333 264.58333"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   sodipodi:docname="ClearAll.svg"
+   inkscape:export-filename="/home/chsch/Documents/PYTHON/Tools.EFL.Coach/TEFLC v0.0.1/TEFLC/static/img/word/clearAllHover.png"
+   inkscape:export-xdpi="1.9199998"
+   inkscape:export-ydpi="1.9199998">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35771945"
+     inkscape:cx="683.0725"
+     inkscape:cy="499.94076"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer2"
+     showgrid="true"
+     units="px"
+     showborder="true"
+     inkscape:showpageshadow="false"
+     borderlayer="false"
+     objecttolerance="5"
+     inkscape:snap-perpendicular="true"
+     inkscape:window-width="1562"
+     inkscape:window-height="833"
+     inkscape:window-x="38"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     gridtolerance="5"
+     guidetolerance="5"
+     inkscape:pagecheckerboard="true">
+    <inkscape:grid
+       type="xygrid"
+       id="grid10"
+       spacingx="26.458333"
+       spacingy="26.458333"
+       empcolor="#d55f93"
+       empopacity="0.53333333"
+       dotted="false" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>chsch</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:rights>
+          <cc:Agent>
+            <dc:title>© 2020, All rights reserved.</dc:title>
+          </cc:Agent>
+        </dc:rights>
+        <dc:publisher>
+          <cc:Agent>
+            <dc:title>chsch</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:description>chsch.info</dc:description>
+        <dc:contributor>
+          <cc:Agent>
+            <dc:title>chsch</dc:title>
+          </cc:Agent>
+        </dc:contributor>
+        <dc:language>English (US)</dc:language>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="White Background"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-32.416677)"
+     style="display:none"
+     sodipodi:insensitive="true">
+    <rect
+       style="opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:40;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers"
+       id="rect819"
+       width="1058.3334"
+       height="264.58334"
+       x="0"
+       y="32.416679"
+       ry="0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Layer">
+    <path
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#c3c3c3;fill-opacity:1;fill-rule:nonzero;stroke:#363636;stroke-width:12;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       d="M 129.00391,20.458984 24.906421,132.29167 129.00391,240.40039 h 847.50195 c 26.56514,0 48.14064,-21.57349 48.14064,-48.13867 V 68.597656 c 0,-26.565178 -21.5755,-48.138672 -48.14064,-48.138672 z"
+       id="rect829"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccssssc" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot821"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:0;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       transform="matrix(0.26458333,0,0,0.26458333,110.80492,145.62607)"><flowRegion
+         id="flowRegion823"><rect
+           id="rect825"
+           width="4000"
+           height="1000"
+           x="0"
+           y="1.2598425e-05" /></flowRegion><flowPara
+         id="flowPara827"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:666.66668701px;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:center;text-anchor:middle">Clear All</flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot831"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:0;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ff4d4d;fill-opacity:1;stroke:#252525;stroke-opacity:1;stroke-width:18.89763804;stroke-miterlimit:4;stroke-dasharray:none;stroke-linejoin:round;stroke-linecap:round;"
+       transform="matrix(0.26458333,0,0,0.26458333,65.801084,114.62401)"><flowRegion
+         id="flowRegion833"
+         style="fill:#ff4d4d;fill-opacity:1;stroke:#252525;stroke-opacity:1;stroke-width:18.89763804;stroke-miterlimit:4;stroke-dasharray:none;stroke-linejoin:round;stroke-linecap:round;"><rect
+           id="rect835"
+           width="600"
+           height="699.16705"
+           x="300"
+           y="136.59906"
+           style="fill:#ff4d4d;fill-opacity:1;stroke:#252525;stroke-opacity:1;stroke-width:18.89763804;stroke-miterlimit:4;stroke-dasharray:none;stroke-linejoin:round;stroke-linecap:round;" /></flowRegion><flowPara
+         id="flowPara837"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:666.66668701px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#ff4d4d;fill-opacity:1;stroke:#252525;stroke-opacity:1;stroke-width:18.89763804;stroke-miterlimit:4;stroke-dasharray:none;stroke-linejoin:round;stroke-linecap:round;">X</flowPara></flowRoot>  </g>
+</svg>

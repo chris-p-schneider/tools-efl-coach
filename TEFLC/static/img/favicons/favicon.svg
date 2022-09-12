@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="296mm"
+   height="300mm"
+   viewBox="0 0 296 300"
+   version="1.1"
+   id="svg8"
+   inkscape:export-filename="/stovetop/TEFL/EFL Coach/webiconpng.png"
+   inkscape:export-xdpi="2.7093334"
+   inkscape:export-ydpi="2.7093334"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   sodipodi:docname="favicon.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#00ff00"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="35.437563"
+     inkscape:cy="398.06797"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:window-width="1600"
+     inkscape:window-height="833"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:pagecheckerboard="false" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,3)">
+    <rect
+       style="opacity:1;fill:#0c4b9e;fill-opacity:1;stroke-width:0.26458332"
+       id="rect3743"
+       width="300"
+       height="300"
+       x="0"
+       y="-3"
+       rx="25"
+       inkscape:export-xdpi="33.866665"
+       inkscape:export-ydpi="33.866665" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:16.32607651px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.40815189"
+       x="170.98177"
+       y="140.05411"
+       id="text22"
+       transform="scale(0.95756961,1.0443105)"><tspan
+         sodipodi:role="line"
+         id="tspan20"
+         x="170.98177"
+         y="140.05411"
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:141.1111145px;font-family:Roboto;-inkscape-font-specification:'Roboto Heavy';text-align:center;text-anchor:middle;fill:#ffffff;stroke-width:0.40815189">EFL</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;opacity:1;fill:#ffa630;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="150.07153"
+       y="232.32079"
+       id="text3729"><tspan
+         sodipodi:role="line"
+         id="tspan3727"
+         x="150.07153"
+         y="232.32079"
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:79.02222443px;font-family:Roboto;-inkscape-font-specification:'Roboto Heavy';text-align:center;text-anchor:middle;fill:#ffa630;fill-opacity:1;stroke-width:0.26458332"><tspan
+   style="fill:#ffffff"
+   id="tspan4578">.</tspan>Coach</tspan></text>
+  </g>
+</svg>
